@@ -1,0 +1,13 @@
+table{
+    border:2px;
+    padding:4px;
+    background-color: bisque;
+}
+th,td{
+    border:1px solid black;
+}
+thead{
+    border-top: solid-thick;
+    border-right: blank;
+    border-left:blank;
+}

@@ -1,0 +1,20 @@
+<p>templ-driven-form works!</p>
+<p>temp-driven-form works!</p>
+<h2> Template driven Form example</h2>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div>
+        <label>Your Name :</label> <!-- Not a [(ngModel)] two way bidning it is a property binding (one way)-->
+        <input type="text" id="textId"  
+        placeholder="you name" name="var_name" [ngModel]>
+    </div>
+    <br>
+    <div>
+        <label>Your Password :</label>
+        <input type="text" id="textPass"  
+        placeholder="you name" name="var_psw" [ngModel]>
+     </div>
+     <br>
+     <button type="submit" >Submit</button>
+</form>
+<div>{{vname}}</div>
+<div>{{vpsw}}</div>

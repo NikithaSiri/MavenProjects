@@ -1,0 +1,9 @@
+<p>demo-ng-class works!</p>
+<p>demo-ng-class works!</p>
+
+<div class="container">
+    <div *ngFor = "let car of Cars" 
+    [ngClass]= "{'alert-secondary':car.name==='Ford'}" > 
+    {{car.name}} {{car.color}}
+</div>
+

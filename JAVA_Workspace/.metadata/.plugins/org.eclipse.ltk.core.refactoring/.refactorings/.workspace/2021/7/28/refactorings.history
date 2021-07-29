@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;JAVA_INHERITANCE&apos; to &apos;JAVA_IPROJECT4_NHERITANCE&apos;&#x0D;&#x0A;- Original element: &apos;JAVA_INHERITANCE&apos;&#x0D;&#x0A;- Renamed element: &apos;JAVA_INHERITANCE&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;JAVA_INHERITANCE&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=JAVA_INHERITANCE" name="JAVA_IPROJECT4_NHERITANCE" references="true" stamp="1625727452504" version="1.0"/>
+</session>

@@ -1,0 +1,145 @@
+types of drivers :
+
+Connection conn= DriverManager.getConnection(url,username, psw);
+  Statement  stmt = conn.createStatement();
+ResultSet rs =stmt. executeQuery ( "select * from emp");
+
+while(rs.next())
+{
+	int i =rs.getInt("EmpNO");
+
+syso(i)
+}
+---------------------------
+?  called as placeholders 
+update emp set sal=? where empno=? 
+pstmt.setInt( 2,101);
+pstmt.setDouble(1,10000);
+---------------------
+ResultSetMetaData
+DatabaseMetaData
+----------------------------------------------
+methodOverriding 
+Abstract class VS Interfaces 
+interface A
+{
+public abstract void show();
+public static final bankname="HDFC";
+}
+------------------------------------
+static variable 
+static methods 
+static classes 
+---------------
+final variable 
+final method 
+final class 
+--------------------
+child class obj - constructor  ( call super class constructor ) 
+--------------------------------
+Emp 
+{
+show() { }
+}
+cust 
+{
+show();
+}
+Peron p = new Employee();
+p.show();
+---------------------------------------
+collection 
+set list map 
+-------------------------
+implement comparable   - natural sorting 
+comparator - 
+treeset.add(s1);
+treeser.add(s2); 
+---------------------------------
+key unique    - 1111      1112
+values duplicate   - p1   p2 
+--------------------------
+functional interface -   
+Predicate  - test  -> boolean value 
+jay vijay sanjay 
+test(sanjay) 
+ only one abstract method  
+eg comparable  - compareTo()
+- Runnable  - Run() 
+-------------used by Lambda 
+Lambda - internally implements functional interfaces 
+---------------------------------------------
+Streams are written - wok very well with lmbda 
+
+Collections 
+
+Why streams ? parellel processing 
+Huge amount of objects are to be processed - they are really fast 
+faster for Collective operations eg find employee with max sal 
+emp with same designation
+
+collection lot of code need to be wriiten 
+streams with lmbda - code is very precise and more cleaner 
+
+----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Statement  - DML Select 
+ResultSet rs =executeQuery()
+Boolean ans =execute();  - 
+int i =executeUpdate() - DML
+PreparedStatment    ? adv , query using user data + precompiled (faster execution) 
+CallableStatement  ? calling ready procedures /functions from db 
+
+
+

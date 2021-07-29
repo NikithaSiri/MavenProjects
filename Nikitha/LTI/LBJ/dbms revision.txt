@@ -1,0 +1,692 @@
+conceptual: view or external what user sees either in GUI or user level (front end display)
+
+DATA MODELS:
+Heirarchial: folder->subfolder->data
+           before dbms camr into existance people stored in excel sheets etc
+		but it is difficult to manage
+
+NETWORK: client server technology 
+	they had a pointer to that partiicular records and maintained relationship
+	ex: opening file demo1 from java folder then the file is demo1.java 
+	Connectivity issues when more than one occurance is ther
+
+RELATIONAL: Colums and rows
+
+OBJECT-ORIENTED DATAMODEL:
+
+RELATIONAL ALGEBRA:
+
+Symbols used by people who wrte the language
+ex:
+ joins(+)
+shows how joins work
+
+(sigma) age>17(Student) represntation using sigma
+
+
+CONSTRAINTS:
+column level constraint: NOT NULL,unique,check,deafult
+Table level constraint: 
+
+
+KEYS:
+CANDIDATE KEY:two possible primary keys or a ey which is capable of primary key
+ALTERNATE: The one other than primary key is laternate key
+SUPER: carno,psNo
+FOREIGN KEY: primary key in nanother table. also called as reference key,referential integrity key
+CASCADE option:
+COMPOSITE KEY: 2 or more colums acts as primary key pkey(empid,empno)
+
+alter table to add smtng to a table
+add constraint pk11 primerykey(tid)
+
+
+TYPES OF LANGUAGES:
+DDL,DML,DCL,DQL,TCL
+
+TCL:commit,rollback,savepoint
+
+
+CREATE table syntaxes with constraints
+
+delete drop truncate
+
+TRuncate releases memory for further usage
+
+----------------------------------------------------
+modify size varchar2(4)
+modify size varchar2(10)--to increase no prblm when ther's data
+modify size varchar2(2)--cannot decrease when there's data
+----------------------------------------------------------------
+ROW RESTRICTION
+1.Where
+COLUMN RESTRICTION:
+----------------------------------
+Rollback:all records lost
+
+-----------------------------------------------------------------------------------------------
+JOINS:
+Cartesian product| cross join 
+Equi join |inner join /natural join
+non-equi join 
+self join
+outer join
+--------------------------------------
+CARTESIAN PRODUCT:
+3 rec in T1, 
+5 rec in T2 
+total 15 possible combinations i.e, 5*3 thus cross join (multiplication)
+used to find all possible combinations eg., Different colors and models
+
+EQUI JOIN:
+join using common column '=' thus equi(as in equals)
+select t1.vals...,t2.vals from t1,t2 where t1.id=t2.id;
+
+select ename, dname from employee and dname where emp.dname=dept.dname
+    sorry where clause
+
+NON-EQUI JOIN:
+joining even when no common column
+
+emp.sal>salgrade.lowsal
+
+SELF JOIN:
+emp names and their mgr names for whom theyre working
+
+OUTER JOINS:
+matched and unmatched rows from both tables
+equijoin(matched)+unmatched =cretes ectra rows for unmatched records
+
+emp.deptno(+) = dept.deptno;
+
+creates null row for unmatched rows
+
+FULL OUTER JOIN:
+
+--------------------------------
+SUBQUERIES:
+1.Single row-  =,<=,>=,<,>
+2.multiple row-IN,NOTIN,<any,>any,<all,>=all
+3.correlated- exists and not exists(true false)
+---------------------------------------------
+
+NORMALIZATION:
+1nf only allows atomic values 
+2nf no partial dependency 
+3nf no transitive dependency  
+--------------------------------------
+
+PLSQL:
+
+Block
+	Declare
+	begin
+	Exception
+	End
+mandatory:
+	Begin 
+	End
+
+----------------------------------
+Declare
+v_ename varchar2(20);
+begin
+select ename INTO v_ename from emo where empno=7782;
+dbms_output.put_line(ename);
+end;
+
+ename to varchar2(30) to change size of ename
+
+alter table emp
+modify ename varchar2(30)
+
+v_ename emp.ename%type;
+--------------------------------------------------
+declare 
+v_rec emp%rowtype;
+begin
+select * INTO v-rec from emp where empno=7782;
+dbms_output.put_line(v_rec||v_rec.empno);
+end;
+-------------------------------------------
+PROCEDURES:
+1.Function- always return some value,can be called in a select statement
+	   - drawback is returns only one value
+2.Procedure-may or may not return any value, can't be called in a select statement
+
+create or replace function tax(p_sal IN number)return number 
+is 
+begin
+	return(p_sal*0.08);
+end tax;
+------------------------------------------------------------------------
+PROCEDURES:
+can accept any number of parameteres
+can return any number of data values
+Default type of a parameter is IN
+Sal_Increment(7782,5000);
+              (id,increment in sal)
+
+Ceate ot replace procedure Sal_Incr(p_empno IN emp.empno%type , psal IN --)
+as 
+begin
+	update emp set sal=psal
+	where empno=p_empno;
+end;
+------------------------------------------------------------------------------------
+OUT:
+Show Details of person with id 7788
+
+ShowDetails(7782)
+
+Create or replace procedure Sal_Incr(p_empno IN emp.empno%type , panme OUT emp.ename%type,psal OUT emp.sal%type)
+as 
+begin
+	select ename,sal INTO pname, psal 
+	from emp
+	where empno=p_empno; 
+end;
+-------------------------------------------------------------------------------
+INOUT:
+sqrt(int x)
+{
+x=x*x;
+return x;
+}
+---------------------------------------------------------------------------------------------
+TOP,RANK
+
+before rank:
+select rownum,rowid,id,FIRST_NAME,salary from emps;
+ 
+select rownum,rowid,id,FIRST_NAME,salary 
+from emps where rownum<4
+order by salary desc;
+
+SEELECT * from(select * from emps order by salary desc)
+where rownum<=3;
+
+RANK:
+select ename,sal,
+row_number() over (order by sal desc)rn,
+rank() over (order by sal desc)rnk,
+dense_rank() over (order by sal desc)drnk
+from emp
+order by sal desc;
+---------------------------------------------------------------------------
+VIEW:
+create or replace view v1
+as
+slect empno,ename,sal,deptno
+from emp
+where deptno=20
+//with read only
+
+insert into v1 values(1111,'jay',5000,20);
+
+------------------------------------------------------
+INDEXES
+===============================================================
+
+
+
+
+========================================================================================================
+========================================================================================================
+========================================================================================================
+
+
+level of archit 
+- physical  - Db disk data files - tables stru data  
+-logical   - ER dig  - schema dig   Scott/tiger -entity attribute relationships 
+relation tuple 
+-conceptual   
+ view /external - user level / GUI /frond end /displayed 
+Data Model -   
+
+join how will work - 
+
+select ename, deptno from emp
+
+O age > 17 (Student)
+select * from Student where age>27 
+-----------------
+keys 
+column level - not null, unique , check ,default 
+candidate key - two possible pkey ( carno, chassis no ) 
+alternate -chassis no, security no  
+super - carno , psNO
+foreign key reference key ref integrity key 
+can parent record ..no - child rows 
+cascade option 
+composit key? 
+pkey 
+--------------------------------------------
+table t
+ pkey - pk11
+
+alter table t
+add constraint pk11 primary key(tid) 
+------------
+DDL, DCL, DML, TCL, DQL
+------------------------------------
+create table syntexes with constrints 
+-------------------------------------------
+delete drop truncate 
+-----------------------------
+mgr - size varchar2(4) 
+modify varchar2(10) - has a data 
+modify varchar2(3)  - has a data -- not allowed 
+----------------------------------
+5 columns  stuid,stuname,fess 
+-----------------------------------
+Joins 
+      - cartesian product     |  cross join 
+      - equi join                      | inner Join/natural join 
+      -non equi -join     
+      -self join  
+     -outer join                        
+---------------------
+cartesion product
+3 rec t1, 5 rec t2 = 15 rec /multplication 
+equi join - 
+emp.deptno= dept.deptno 
+non equi  join 
+emp.sal > salgrade.lowsal 
+self join 
+outer joins - 
+equi join ( matched records ) 
++ 
+unmatched records  ( extra null rows ) 
+
+emp.deptno(+)= dept.deptno;
+null null null null   40
+emp.deptno= dept.deptno(+);
+ 111........50  null nulll null 
+Full Outer join 
+------------------------------------------------
+subqueries -
+single row - = >=  <= < 
+multiple row  -  IN NOT IN , <any ,>any <all , >=all
+corelated  - exists and not exists ( true false)
+-----------------------------------------------------
+
+select deptno,avg(sal) 
+group by deptno
+
+order of execution - 
+where 
+group by
+having 
+order by 
+selecttion 
+---------------------------
+
+Normalization 
+
+1NF   -  each cell atomic value 
+2NF  - no partial dependancy  
+3NF  - no transitive dependency ( studid-> city->pin  | company-> ceo->age) 
+----------------------------------------------
+PLSQL 
+
+Block 
+	Declare 
+	Begin
+	Exception 
+	End
+
+mandatory :  Begin  , end ;
+--------------------------------------
+Decalre 
+v_ename emp.ename%type ;
+begin 
+select ename INTO v_ename from emp where empno=7782;
+dbms_output.put_line(v_ename);
+end ;
+--------------------------------------------
+Decalre 
+v_rec  emp%rowtype;
+begin 
+select * INTO  v_rec  from emp where deptno=20;
+dbms_output.put_line(v_rec.ename || v_rec.empno);
+end ;
+------------------------------------------------------------------------
+
+reporting section 
+
+HR - if  10% sal - what will be everyone's sal
+
+select empno, sal, tax(sal)  from emp;
+
+-----------------
+two types of procedures 
+functions   -  always return one and only one value , can be called in a select stmt 
+procedure - may or may not return value , can't be called in a select stmt 
+
+----------------------------
+create or replace function tax(p_sal IN number) return number
+ is 
+begin 
+	return(p_sal*0.08);
+end tax;
+---------------------------------------------------
+drawback of function 
+custID -> name , balance , min bal 
+-------------------
+Prcedures - can accept any no para , can return any no of data values ( how ) 
+Deafult type of parmeter - IN 
+
+Sal_Incr( 7782, 5000) ;
+
+create or replace procedure Sal_Incr (p_empno IN emp.empno%tye   ,  psal     IN ) 
+as 
+begin
+ 	update emp set sal=psal 
+	where empno=p_empno
+end ;
+-----------------------
+ShowDetails( 7788  ,  gsal  ,gsal   )
+create or replace procedure Sal_Incr (p_empno IN emp.empno%tye , 
+			            pname   OUT emp.ename%tye   ,   
+			psal OUT emp.sal%tyep    )
+as 
+begin
+ 	select ename, sal INTO pname,psal   from emp where empno=p_empno;
+end ;
+------------------------------------------------------
+sqrt(int INOUT x)
+{
+x= x*x;
+return x;
+}
+------------------------------------------- of archit 
+- physical  - Db disk data files - tables stru data  
+-logical   - ER dig  - schema dig   Scott/tiger -entity attribute relationships 
+relation tuple 
+-conceptual   
+ view /external - user level / GUI /frond end /displayed 
+Data Model -   
+
+join how will work - 
+
+select ename, deptno from emp
+
+O age > 17 (Student)
+select * from Student where age>27 
+-----------------
+keys 
+column level - not null, unique , check ,default 
+candidate key - two possible pkey ( carno, chassis no ) 
+alternate -chassis no, security no  
+super - carno , psNO
+foreign key reference key ref integrity key 
+can parent record ..no - child rows 
+cascade option 
+composit key? 
+pkey 
+--------------------------------------------
+table t
+ pkey - pk11
+
+alter table t
+add constraint pk11 primary key(tid) 
+------------
+DDL, DCL, DML, TCL, DQL
+------------------------------------
+create table syntexes with constrints 
+-------------------------------------------
+delete drop truncate 
+-----------------------------
+mgr - size varchar2(4) 
+modify varchar2(10) - has a data 
+modify varchar2(3)  - has a data -- not allowed 
+----------------------------------
+5 columns  stuid,stuname,fess 
+-----------------------------------
+Joins 
+      - cartesian product     |  cross join 
+      - equi join                      | inner Join/natural join 
+      -non equi -join     
+      -self join  
+     -outer join                        
+---------------------
+cartesion product
+3 rec t1, 5 rec t2 = 15 rec /multplication 
+equi join - 
+emp.deptno= dept.deptno 
+non equi  join 
+emp.sal > salgrade.lowsal 
+self join 
+outer joins - 
+equi join ( matched records ) 
++ 
+unmatched records  ( extra null rows ) 
+
+emp.deptno(+)= dept.deptno;
+null null null null   40
+emp.deptno= dept.deptno(+);
+ 111........50  null nulll null 
+Full Outer join 
+------------------------------------------------
+subqueries -
+single row - = >=  <= < 
+multiple row  -  IN NOT IN , <any ,>any <all , >=all
+corelated  - exists and not exists ( true false)
+-----------------------------------------------------
+
+select deptno,avg(sal) 
+group by deptno
+
+order of execution - 
+where 
+group by
+having 
+order by 
+selecttion 
+---------------------------
+
+Normalization 
+
+1NF   -  each cell atomic value 
+2NF  - no partial dependancy  
+3NF  - no transitive dependency ( studid-> city->pin  | company-> ceo->age) 
+----------------------------------------------
+PLSQL 
+
+Block 
+	Declare 
+	Begin
+	Exception 
+	End
+
+mandatory :  Begin  , end ;
+--------------------------------------
+Decalre 
+v_ename emp.ename%type ;
+begin 
+select ename INTO v_ename from emp where empno=7782;
+dbms_output.put_line(v_ename);
+end ;
+--------------------------------------------
+Decalre 
+v_rec  emp%rowtype;
+begin 
+select * INTO  v_rec  from emp where deptno=20;
+dbms_output.put_line(v_rec.ename || v_rec.empno);
+end ;
+------------------------------------------------------------------------
+
+reporting section 
+
+HR - if  10% sal - what will be everyone's sal
+
+select empno, sal, tax(sal)  from emp;
+
+-----------------
+two types of procedures 
+functions   -  always return one and only one value , can be called in a select stmt 
+procedure - may or may not return value , can't be called in a select stmt 
+
+----------------------------
+create or replace function tax(p_sal IN number) return number
+ is 
+begin 
+	return(p_sal*0.08);
+end tax;
+---------------------------------------------------
+drawback of function 
+custID -> name , balance , min bal 
+-------------------
+Prcedures - can accept any no para , can return any no of data values ( how ) 
+Deafult type of parmeter - IN 
+
+Sal_Incr( 7782, 5000) ;
+
+create or replace procedure Sal_Incr (p_empno IN emp.empno%tye   ,  psal     IN ) 
+as 
+begin
+ 	update emp set sal=psal 
+	where empno=p_empno
+end ;
+-----------------------
+ShowDetails( 7788  ,  gsal  ,gsal   )
+create or replace procedure Sal_Incr (p_empno IN emp.empno%tye , 
+			            pname   OUT emp.ename%tye   ,   
+			psal OUT emp.sal%tyep    )
+as 
+begin
+ 	select ename, sal INTO pname,psal   from emp where empno=p_empno;
+end ;
+------------------------------------------------------
+sqrt(int INOUT x)
+{
+x= x*x;
+return x;
+}
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+

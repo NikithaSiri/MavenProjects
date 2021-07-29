@@ -1,0 +1,60 @@
+ Lambda expressions are new and important feature of Java 8. They provide a clear way to represent one method interface using lambda expression. And they provide easy way to access Collection libraries for iterating, filter and extract data.
+Example :
+
+Syntax : (arg1, arg2) -> {body}
+
+For Ex:
+
+(int a, int b) -> {  return a + b; }
+ 
+() -> System.out.println("Hello World");
+ 
+(String s) -> { System.out.println(s); }
+ 
+Filter method - > uses Predicate 
+Map method -> uses Function -that takes one argument and produces a result 
+
+
+//Old way of iterating Collection
+ 
+List list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+ 
+for(Integer n: list) {
+ 
+System.out.println(n);
+ 
+}
+ 
+//New way with lambda:
+ 
+List list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+ 
+list.forEach(n -> System.out.println(n));
+Rules:
+
+It can have zero or more number of arguments.
+Parameters are separated by using comma
+Empty parenthesis are used to represent empty parameters eg : () -> System.out.println(“Hello World”);
+Curly braces for body is not mandatory if it contains only single statement, other wise it should enclosed with curly braces.
+
+Lambda expressions are introduced in Java 8 and are touted to be the biggest feature of Java 8. Lambda expression facilitates functional programming, and simplifies the development a lot.
+
+Syntax
+A lambda expression is characterized by the following syntax −
+
+parameter -> expression body
+Following are the important characteristics of a lambda expression −
+
+Optional type declaration − No need to declare the type of a parameter. The compiler can inference the same from the value of the parameter.
+
+Optional parenthesis around parameter − No need to declare a single parameter in parenthesis. For multiple parameters, parentheses are required.
+
+Optional curly braces − No need to use curly braces in expression body if the body contains a single statement.
+
+Optional return keyword − The compiler automatically returns the value if the body has a single expression to return the value. Curly braces are required to indicate that expression returns a value.
+
+Following are the important points to be considered in the above example.
+
+Lambda expressions are used primarily to define inline implementation of a functional interface,
+
+Lambda expression eliminates the need of anonymous class and gives a very simple yet powerful functional programming capability to Java.

@@ -1,0 +1,122 @@
+*** Flow of angular application :
+main.ts   -> bootsrap module /RootModule ( AppModule) /Entry point --->
+AppComponent(Root Component ) /app.component.ts ----> 
+Decorators 
+1.selector  : 'app-compo' - at this location data displayed 
+2.templateUrl : ' ...respective html file data is exported ' 
+3.styleUrl : 'takes respective styles from css file ' 
+   CusotmComponent
+{
+mymsg =" hello" ;
+}
+------------------------
+template : ` `  ( includes style and html tag ) 
+-----------------------------------------------------------
+root file gets displayed by default when application runs -> 
+index.html - it has <app-root> selector in body tag, it displays by default root component html 
+app.component.html content 
+--------------------------------------
+
+multiple components - say A ,B , C 
+how to display -SPA 
+app.component.html 
+<app-A></app-A>  all selectors can be placed 
+<app-B></app-B>
+<app-C></app-C>
+
+any drawback of above approach ?
+- all compo data is displayed one below other /at same time / on same page ????
+---------------------------
+What's solution s?
+User should select the options - which compo he want 
+It is in its own library package, @angular/router used for navigation . 						
+Navigate to a specific view by typing a URL in the address bar						
+Pass optional parameters to the View	
+Handles back and forward buttons of the browser						
+Allows you to dynamically load the view 
+
+where to write : app.component.html 
+step 1: 
+	routerLink="/products"
+	routerLinkActive="mystyle"  - styling in css when user click that perticular link /option 
+step 2:
+	app.routing.module.ts 
+	it has - Routes array - holds all the paths 
+	{path : "products" , component: ProductCompnent }
+	why i don't write path : "/products"
+	index.html - base href="/"  default 
+
+	path=""    default page if url has no path added 
+	path="**"   searches all the paths , when doen't find any path - if error compo 
+		- when no page found - message to user / improper url 
+		-wildcard route 
+step 3: 
+        <router-outlet></router-outlet> ( location those component data get displayed ) 
+------------------------------------------------------------
+static data in component - manually array , variables 
+application has many components
+all comonenents may  get data - from outside application
+who will bring - services 
+
+what are services 
+Angular services are singleton objects that get instantiated 
+only once during the lifetime of an application. 
+They contain methods that get data dynamically
+***they  share business logic, models, or data and functions 
+with different components of an Angular application.
+AComo   BCompo - multiple compo constructor ( service ref) - sahring data among multiple component 
+
+How do u create service ? 
+ng g s service-name;
+
+has Decorator new feature 
+@Injectable 
+{
+providedIn:'root' ; -- service is injected at rootComponent ( avail throughout app) 
+}
+-without this
+where do we mention services to be added ?
+providers array [] ; module.ts file 
+-----------------------------------------
+Forms - template driven  and Reactive form 
+mandatory - while working with them 
+import : FormsModule 
+
+rrecative forms - ReactiveFormsModule 
+components which has form realted data - 
+import - FormBuilder, Validators 
+
+else - [FormControl ] - realted errror 
+----------------------------------------------------
+
+Template Driven 
+-------------------------------
+Easy to use			
+Suitable for simple scenarios and fails for complex scenarios			
+Similar to AngularJS			
+Two way data binding(using [(NgModel)] syntax)			
+Minimal component code			
+Automatic track of the form and its data(handled by Angular)			
+Unit testing is another challenge	
+
+Reactive Forms
+----------------------------		
+More flexible, but needs a lot of practice				
+Handles any complex scenarios				
+No data binding is done (immutable data model preferred by most developers)				
+More component code and less HTML markup				
+Reactive transformations can be made possible such as				
+Handling a event based on a debounce time				
+Handling events when the components are distinct until changed				
+Adding elements dynamically				
+Easier unit testing				
+
+
+
+Property	Class		Description								
+$valid		ng-valid	Boolean True if all of the containing forms and controls are valid.								
+$invalid	ng-invalid	Boolean True if at least one containing control or form is invalid.								
+$pristine	ng-pristine	Boolean True if user has not interacted with the form yet.								
+$dirty		ng-dirty	Boolean True if user has already interacted with the form.								
+$touched	ng-touched	Boolean True if the input has been blurred.								
+$submitted	ng-submit	Boolean True if user has submitted the form even if its invalid.		

@@ -1,0 +1,203 @@
+Agenda....
+1.Basic Fundamentals of Java Programming.
+
+Java Programming....
+
+1. OOP Langauage: It follows OOPS Approach
+2. Platform Independent : Application/softwares developed in Java can be executed on any OS.
+3. Robust:All Librarie of Java are independent irrespective of the Platform(os)
+4. Distributed Programming: We can distributed applications( DCOM,RMI,IIOP)
+5.Architectural Neutral: WORA--(ie we dont have to recompile again back on differnt machiine)
+6. Simple: 
+
+1. if ur having knowldege of any programming language and oops concept---> True else false
+
+
+
+2. Why Simple---->"Because the syntax and some features are carried back into java programming."
+
+3.for technical people its simple reason is: The programmer oin java need not to woory about GC ie(allocation and deallocation) is dynamically handled by java.
+
+
+
+
+Java Versions:
+
+Jdk1.0----> 1995------------------------------->No Gui
+
+Jdk1.1----> 1997------------------------------> Libraries for jdbc
+
+Jdk1.2----> 1998----playground----------------->AWT,Collection(DS) Framework,Swing
+
+
+Jdk1.3----> 2000---kestrel---->bOXING
+
+Jdk1.4----> 2002---Merlin----> AutoBoxing, Assertions
+
+Jdk1.5-----> 2004---->Major Ground Breaking version----Tiger----Generics(TypSafe),Collection where re-written by applying generics fewature.
+
+Jdk1.6----> 2006---->Mustang---> Annotations
+
+Jdk1.7----> 2011---->Dolphin----ARM,multiple eprtions handling by single catch block,then string evaluation in switch case
+
+Jdk1.8----> 2014---->Spider---Lamda,Functional Programme,JODA Date & Time,Nashorn for Js,Streams.
+
+
+3. Enviorment to Start developing Java Applicatrions
+
+	a) set up Jdk version
+	b) IDE (Notepad,Eclipse,other IDES with Java Support).
+
+4.What u should know about JDK.
+After Installing jdk.
+1.jre: Env.. to only ruun Java App...
+Tools,Librarires(required to dev.. Java App..)(javac,java,javad,jar)
+
+2.jvm:(Interreps or execute the Java Programme (ie Byte Code)
+
+because java code when compile produces byte code and this byte code is saved with .class extension
+
+Byte Code -----is not underatnle ----> machine
+
+Bytecode-------------->Jvm-----> Interpets the byte code---> to native machine code
+
+Windows
+Jvm is dependent
+Unix
+
+
+3.jit compiler:Speed up the execution
+
+4. Class Loader: loads all predifend & user defined class
+
+		
+ 
+.java--src-----> .class--->byte code----------jvm----->transaltes the byte code to machine under...code
+
+Memory Management
+
+Java Memory is Divided in 2 Parts
+obj1
+obj2
+1.Heap   
+Stores objects
+
+Young Generation Area 
+
+Eden Area
+
+Once it becomes full Minor Gc is called to clean up
+
+Survior Memoery Area s1
+obj1
+obj2
+Once it becomes full Minor Gc is called to clean up
+
+
+Survior Memoery Area s2
+obj1
+obj2
+Once it becomes full Minor Gc is called to clean up
+
+
+
+Old Generation Area
+obj1
+obj2
+Once it becomes full Major Gc is called to clean up
+
+
+Note:  Calling Major GC will degrade the application performamnce,so take care that it does not get called.
+
+
+
+
+Memory Pool: is a Part of Heap Memory( String class,String objects and MemoryManagers inside this pool)
+
+
+
+Permanet Genration: is not a part of Heap Memory it is a part of or generated at Runtime...
+
+Method Area
+1. Constant and statci variable are stored heres
+2. Complet class Strutcure will be here
+
+
+
+
+
+
+2.Stack
+local variable
+methods of a class
+
+Data Types in Java
+
+8 Primitive Types
+int,float,double,short,byte,long,char,boolean:  they have a fixed size in the memory
+
+Every Data Type in Java has A Warapper Assciatedi:
+\
+\
+int --> Integre
+int a=10;
+Integer obj=new Integer(a);
+
+developer 2
+obj;
+int x=obj;
+
+floa----> Float
+
+double ---> Double 
+short---> Short
+byte-->Byte,                              -----> Number------> Object
+long,---> Long
+char---> Character------------------------------> Object
+,boolean: ---> Boolean------------------> Object
+Reference Types:
+String
+Class
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+2.DS
+
+2 : Liner ds(Array,LL,STACK Quue)  ,
+
+Non-Liner Ds
+
+
+
+
+
+
+
+3.AL:human unseratable approach
+
+
+
+
+
+
+
+
+
+
+

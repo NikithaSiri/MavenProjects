@@ -1,0 +1,20 @@
+<p>sale works!</p>
+
+<table>
+    <thead>
+        <tr border:1>
+            <th>prdId</th>
+            <th>prdQty</th>
+            <th>BillAmount</th>
+           
+        </tr>
+    </thead>
+<tbody>
+<tr *ngFor="let sRec of saleList;">
+    <td>{{sRec.prdId}}</td>
+    <td>{{sRec.prdQty}}</td>
+    <td>{{sRec.BillAmount}}</td>
+    
+</tr>
+</tbody>
+</table>

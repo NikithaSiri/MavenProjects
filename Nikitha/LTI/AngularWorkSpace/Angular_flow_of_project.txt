@@ -1,0 +1,145 @@
+images - assets - images folder -png 
+
+installation -bootstrap - jquery - > animations effects - events 
+
+page - displayed by default ? index.html-> app.component.html
+<router-outlet> </router-outlet> 
+
+all components - htmls displayed within this app.compo.html
+--each page is same /uniform 
+data changes - user navigatins /user selections - 
+
+router - all routes all planned in routing.module.ts 
+path :        invokes como -? html -> router-outlet 
+--------------------------------------------------------------
+navigation plan ready 
+-------------------------------------------
+Data - comes from outside -> 
+gets displayed in respective components 
+
+------------------------
+where Data ? installed json server - server in json format / 
+web effect - URL http://localhost:3000/ employees 
+dummy server  json-server --watch db.josn always up 
+-----------------------------------------------------------
+who brings that data in a component ?
+services --with help of HttpClient constructor injection 
+module.ts -> HttpClientModule import 
+http. get ()  put() delete() post() ready - operations 
+--------------------------------------------------------------
+get() ? url--> josn data 
+data can be in any format 
+get() returns -> Observable type 
+Observable -subscribe() --> asynchronious working ->
+as and when data arrives -pulls data in a component ( type any ) 
+data arrives in a component -> populate it in that html file 
+---------------------------------------------------------------------
+import {first} from 'rxjs/operators';			
+
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+elow are some examples to give you a basic idea of how they work:
+•	a — matches one character that is a (not b, not aa, etc.)
+•	abc — matches a, followed by b, followed by c.
+•	a* — matches the character a, zero or more times (+ matches a character one or more times).
+•	[^a] — matches one character that is not a.
+•	a|b — matches one character that is a or b.
+•	[abc] — matches one character that is a, b, or c.
+•	[^abc] — matches one character that is not a, b, or c.
+•	[a-z] — matches any character in the range a–z, lower case only (you can use [A-z]for lower and upper case, and [A-Z] for upper case only).
+•	a.c — matches a, followed by any character, followed by c.
+•	a{5} — matches a, 5 times.
+•	a{5,7} — matches a, 5 to 7 times, but no less or more.
+You can use numbers and other characters in these expressions too, e.g.:
+•	[ |-] — matches a space or a dash.
+•	[0-9] — matches any number in the range 0 to 9.
+You can combine these in pretty much any way you want, specifying different parts one after the other:
+•	[Ll].*k — A single character that is an upper or lowercase L, followed by zero or more characters of any type, followed by a single lowercase k.
+•	[A-Z][A-z|-|']+ — A single upper case character followed by one or more characters that are an upper or lower case letter, or a dash, or an apostrophe, or a space. This could be used to validate the city/town names of English-speaking countries, which need to start with a capital letter, but don't contain any other characters (you could add exceptions as you find them). Examples from the UK include Manchester, Ashton-under-lyne, and Bishop's Stortford. You could write the last block as [A-z-' ]+ (without the pipe characters), but it isn't as easy to read.
+•	[0-9]{3}[ |-][0-9]{3}[ |-][0-9]{4} — A simple match for a US domestic phone number — three numbers 0-9, followed by a space or a dash, followed three numbers 0-9, followed by a space or a dash, followed by four numbers 0-9. You might have to make this more complex, as some people write their area code in parentheses, but it works for a simple demonstration.
+
+username should only consist of lowercase letters; no capital letters, numbers or other special characters allowed. In addition, the username length shouldn’t be more than 15 characters. 
+
+	<form action="somefile.php">
+<input type="text" name="username" placeholder="Username" 
+pattern="[a-z]{1,15}">
+</form>
+
+pattern="banana|cherry">
+
+<input type="number" id="n1" name="age" pattern="[0-9]+">
+
+<label for="n1">How old are you?</label>
+    <!-- The pattern attribute can act as a fallback for many browsers which
+         don't implement the number input type but support the pattern attribute.
+         Please note that browsers that support the pattern attribute will make it
+         fail silently when used with a number field.
+         Its usage here acts only as a fallback -->
+    <input type="number" min="12" max="120" step="1" id="n1" name="age"
+           pattern="\d+">
+  </p>
+  <p>
+    <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory">*</abbr></label>
+    <input type="text" id="t1" name="fruit" list="l1" required
+           pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+    <datalist id="l1">
+      <option>Banana</option>
+      <option>Cherry</option>
+      <option>Apple</option>
+      <option>Strawberry</option>
+      <option>Lemon</option>
+      <option>Orange</option>
+    </datalist>
+  </p>
+
+
+For example, to validate a US Zip code (5 digits, sometimes followed by a dash and an additional 4 digits), 
+
+<input type="text" pattern="^\d{5,6}(?:[-\s]\d{4})?$" ...>
+
+For example, in Nigeria, the telephone format is xxxx-xxx-xxxx which would be something like 0803-555-8205.
+The RegEX ^\d{4}-\d{3}-\d{4}$ matches the format hence the input element would look like this:
+<label for="phonenum">Phone Number:</label>
+<input type="tel" pattern="^\d{4}-\d{3}-\d{4}$" >
+
+Alpha-Numeric Values
+The following matches an alpha-numeric (combination of alphabets and numbers) character.
+<input type="text" pattern="[a-zA-Z0-9]+" >
+
+
+An <input> element with type="email" that must be in the following order: characters@characters.domain(characters followed by an @ sign, followed by more characters, and then a "."
+After the "." sign, you can only write 2 to 3 letters from a to z:
+<form action="/action_page.php">
+E-mail: <input type="email" name="email" pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+<input type="submit">
+</form>
+Try it Yourself »
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

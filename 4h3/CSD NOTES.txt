@@ -1,0 +1,19 @@
+HTML5
+------
+HTML - is a markup language - is to create web pages
+angular brackets - keywords - they are called tags = mark up
+<body>, <head>, <title> , <table>, <img>
+HTML is made up of tags called markup and hence it is a mark up language
+It is not a programming language like C, Java, Python, C++
+A page/document available on the internet (web) is known as webpage
+Website- is a collection of web pages that are linked together
+W3C - World Wide Web Consortium - standardization organization 
+The latest version of HTML is HTML5 - semantics (meaningful tags and elements)
+HTML - Tim Berners Lee - founder of HTML 
+Browser - to view these documents - software that allows us to view the web pages
+tag - some keyword written within angular brackets is known as a tag
+Each tag has an opening and closing (forward slash in the beginning)
+<body> </body>
+There are few tags that dont have a closing tag - empty tag/elements - <br> - break - move to the next line
+<hr>
+------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+package com.employee.impl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.employee.domain.Employee;
+import com.employee.service.EmployeeCRUDService;
+
+public class EmplopyeeServiceImpl implements EmployeeCRUDService {
+
+	@Override
+	public void addEmployee(ArrayList<Employee> al) {
+		// TODO Auto-generated method stub
+
+			Iterator<Employee> it=al.iterator();
+			while(it.hasNext())
+			{
+				Employee e=it.next();
+				System.out.println("Name:"+e.getName()+"iD:"+e.getId());
+			}
+	
+	
+	}
+
+}

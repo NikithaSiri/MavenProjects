@@ -1,0 +1,104 @@
+DevOps-Developers tools/Operational people
+	Maven-Automated deployment tool
+	clean,compile-run test cases,packaging into jars/war files(if web application)
+	Steps,commands
+	Special features:
+			dependency deployment/dependency management
+			put dependency tag to pom.xml
+			maven downloads it from central repository and saves in a local repository
+			local repos-path-is .m2/repository
+			multiple versions are dwenloaded to get backup compatibility
+MAVEN: used for building and managing any java-based project
+	Making the build process easy
+	Providing a uniform build system
+	Providing quality project information
+	Encouraging better development practices
+
+Types of Repositories:
+			1.LOCAL
+			2.CENTRAL
+			3.REMOTE(client system have their own repos)
+
+Structure of maven:
+		main-java
+		    -resources
+		test-testcases
+		    -ojdbc resources(if needed)
+		target-jar/war + compiled class files(of java + test classes)
+		-client side- he gets al in the jar format
+		-pom.xml
+
+Pom.xml: it is a configuration information(which version to use etc.) + all dependencies
+
+maven first reads pom.xml file -> check for dependencies + version(adds to build path/project from local repository)
+				-> if not available download from central repository
+
+**LIFE-CYCLE phases of MAVEN:
+
+1.validate
+2.compile
+3.test
+4.install-compile ->all steps , -> packaging happens ->integration test etc .
+------------------------------------------------------------------------------
+
+In maven it is mandatory to have 
+build path: jdk8 , compiler -1.8
+----------------------------
+the most common command we use in maven is
+update project ->(maven update) downloads jar, resets m2 repository
+Run-> maven build-> clean--compile--test-compile--test--test--install
+
+============================================================================================
+
+JUNIT:
+
+why Junit? if im writing my method add() as a developer first code then testing 
+testing framework
+-automated testing
+-provide test runners - even if you have n no. of test cases(all can be executed/ run simultaneously)
+-repetable automated test
+-provides annotation like @Test @BeforeAll @BeforeEach @AfterAll @AfterEach
+
+Difference between @beforeAll  and @BeforeEach
+
+@BeforeAll- only once (when  we need some initialization - like db connection)
+@BeforeEach- before every testcase(some methods need initializing variables, sum=0)
+@AfterAll- close db connection
+
+----------------------------------------------------------------------------
+
+How Junit handles testing:
+
+-whether code of a develope might throw exception object and if something goes wrong
+
+-Junit checks whether exception being thrown or not , is code handing the exception object etc.
+
+when we pass a setName(null) ->if username is null- developer code throws exception object
+			     -> junit passes test -because exception was thrown in incorrect situation
+			     -> is developer is handling exception or not -> if yes testcases pass
+	
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

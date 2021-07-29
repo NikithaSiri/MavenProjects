@@ -1,0 +1,219 @@
+#include <stdio.h>
+/*
+1.
+int main()
+{
+    char s[7]={'s','p','h','e','r','e'};
+    int l=6;
+    int r=0;
+    int i,j;
+    for(i=0;i<l;i++){
+        for(j=0;j<l;j++){
+            if ((i==j)&&(s[i]!=s[j])){
+                r=1;
+            }
+        
+        }
+        if (r==0){
+            printf("%c",s[i]);
+            
+        }
+    }
+
+    return 0;
+}
+OUTPUT: sphere
+
+2.
+int main(){
+    int p,q=14;
+    for (p=13;p<=17;p++){
+        q%=p;         //(when p=13 and q=14,then 14%13=1;from then q value =1; then 1%(any num)=1)
+        if (q==2)
+          {
+            q+=3;
+          }
+        printf("%d ",q);
+    }
+OUTPUT:11111
+3.
+void fun(int a){
+    int i;
+    if(a%12>9){
+        fun(a-12);
+        printf("%d",a);
+    }
+    else{
+        for(i=4;i<=6;i++){
+            a+=i;
+            printf("%d ",a);
+        }
+    }
+    
+}
+int main(){
+    int a=45;
+    fun(a);
+    return 0;
+}
+OUTPUT:49 54 60
+4.
+int main(){
+    int m=11,n=13,o=14,p=1;
+    f: n-=3;
+    if(n%2==0){
+        m+=p;
+        o-=m;
+        printf("%d ",o);
+    }
+    else{
+        m-=p;
+        o+=m;
+        printf("%d ",o);
+        
+    }
+    if (n>5){goto f;}
+    return 0;
+}
+OUTPUT:2 13 1
+
+5.
+int main(){
+    int a=7,b;
+    for(b=5;b<=7;b++){
+        a+=b;
+        a-=3;
+        printf("%d ",a);
+    }
+    return 0;
+}
+OUTPUT:9 12 16
+6.
+int main(){
+    int p[5]={10,20,30,50,70};
+    int j;
+    p[0]=p[4]/7;
+    p[3]=p[0]+p[2];
+    p[4]=p[0]+p[1]+p[3];
+    for(j=0;j<=4;j++){
+        printf("%d ",p[j]);
+    }
+    return 0;
+}
+OUTPUT: 10 20 30 40 70
+7.
+
+int main(){
+    int p=0,q;
+    for(q=13;q<=19;q++){
+        p+=5;
+        if(p==18){
+            printf("sai");
+        }
+    }
+    printf("%d",p);
+    return 0;
+}
+OUTPUT: 35
+8.
+
+int main(){
+    int p=5,q=4,r=0;
+    while(1){
+        r=p-q;
+        p+=r;
+        if (p>20)
+         break;
+        else{
+            q=p-q;
+        }
+        printf("%d ",q);
+    }
+    return 0;
+}
+OUTPUT: 2 8 4 16
+9.
+int fun(int p,int q,int r){
+    if(p>1)
+        {fun(p-r,q,r-3);}
+    printf("%d ",q);
+    
+    return 0;
+}
+int main(){
+    fun(20,25,30);
+    return 0;
+}
+OUTPUT:25 25
+
+10.
+int main(){
+    int a=37,b=99,c;
+    c=a-1;
+    b-=c;
+    a=(c*100)+b;
+    printf("%d",a);
+}
+OUTPUT:3663
+11.
+
+int main(){
+    int a=15,b=6,c=3,d;
+    d=b-a;
+    a+=d;
+    d=a%c;
+    printf("%d %d",a,d);
+}
+OUTPUT: 6 0
+12.
+
+int main(){
+    int a=35,b=25,c,d,e;
+    c=a%10;
+    d=b%10;
+    e=c*d;
+    c=a/10;
+    d=c*100+e;
+    printf("%d",d);
+}
+OUTPUT:325
+13.
+
+int main(){
+    int a=6,b=7,i;
+    for(i=9;i>=a+1;i--){
+        b=((b*3)/2)+3;
+        printf("%d ",b);
+    }
+}
+OUTPUT: 13 22 36
+14.
+
+
+int main(){
+    int a=7,b=15,c=18;
+    a+=1;
+    f:b-=a;
+    if(b>3)
+        goto f;
+    printf("%d",b);
+}
+OUTPUT: -1
+15.
+
+int fun(int a){
+    if(a<4){
+        return a-5;
+    }
+    else{
+        return fun(a/5 -2);
+    }
+    
+}
+int main(){
+    int x=fun(125);
+    printf("%d",x);
+    
+}
+OUTPUT: -3
+*/

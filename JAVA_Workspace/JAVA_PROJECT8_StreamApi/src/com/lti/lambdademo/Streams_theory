@@ -1,0 +1,21 @@
+Streams very well / designed to wrok with streams
+------------------------
+Streams:
+input, output streams
+System.out.println
+
+New Stream API
+why?
+
+collections-ArrayList Maps- Huge huge objects
+performing collective operations of collection framework - not easy-lot of code
+1. who's employee with maximum salary ?
+2. What's total salary of all employeees?
+3. Min age of employee - city -mumbai 
+
+--solution - New Stream Api 
+1. it can be parellely processed    - 
+    muliple Cpus  multicore cpus - more than processor 
+make use both  processors parelkley to find total sal - yes - fork join 
+2. faster than old collection framework methods bec it works with lambda
+

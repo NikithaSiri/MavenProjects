@@ -1,0 +1,5 @@
+Mutable Strings
+One of its biggest strength Immutability is also biggest problem of Java String if not used correctly. 
+many a times we create a String and then perform a lot of operation on them e.g. converting string into uppercase, lowercase , getting substring out of it , concatenating with other string etc. 
+Since String is an immutable class every time a new String is created and older one is discarded which creates lots of temporary garbage in heap. If String are created using String literal they remain in String pool. 
+To resolve this problem Java provides us two Classes StringBuffer and StringBuilder. 

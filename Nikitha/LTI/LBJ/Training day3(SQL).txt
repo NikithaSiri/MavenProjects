@@ -1,0 +1,319 @@
+DML- INSERT,UPDATE,DELETE
+select * from emp
+
+ insert into emp values( 1234,'JAY','CLERK',7566,'07/05/1981',7000,null,10)
+
+update emp
+set sal=6000
+where empno=7566
+
+delete emp where empno= 7900;
+desc emp
+
+Alter table emp ADD five number(5,2)
+
+Alter table emp
+modify five number(7,2)
+-- you can't reduce or decrease the size of column, if it has already a min size data 
+--either column has to be empty, 
+--increase size - ok (if you have data)
+
+alter table emp
+rename column sal to salary
+
+alter table emp
+drop column sal
+
+update emp1 SET comm = 0 WHERE comm IS NULL;
+
+ALTER TABLE emp
+MODIFY comm NUMBER(2) NOT NULL;
+
+drop table emp- all records r deleted , mem structure dropped, u cant rollback
+
+create view v2
+as
+select * from emp
+where deptno=20
+WITH CHECK OPTION
+
+
+---------------------------------------------------------------------------------------------------------------------------
+PLSQL
+
+Structure:
+
+DECLARE
+
+BEGIN
+
+EXCEPTION
+
+END;
+         
+
+DECLARE
+
+
+v_empno emp.empno%type := 7839;
+v_no emp.empno%type;
+v_name emp.ename%type;
+v_dno emp.deptno%type;
+
+
+BEGIN
+
+
+select empno,ename,deptno INTO v_no,v_name,v_dno from emp where empno = v_empno;
+
+
+DBMS_OUTPUT.PUT_LINE(v_no || ' ' || v_name ||' '|| v_dno);
+
+
+END;  
+
+DECLARE 
+emp_rec emp%rowtype;
+
+BEGIN
+select * into emp_rec from emp where empno=7782;
+DBMS_OUTPUT.PUT_LINE(emp_rec.empno ||' ,' ||emp_rec.ename || ',' || emp_rec.sal);
+End;
+
+DECLARE
+i number:=1;
+BEGIN
+   loop
+   exit when i>5;
+   DBMS_OUTPUT.PUT_LINE(i);
+   i:=i+1;
+   END LOOP;
+END;
+
+
+DECLARE
+
+BEGIN
+   for i in 1..5
+   loop
+   dbms_output.put_line(i);
+   end loop;
+END;
+
+DECLARE
+
+BEGIN
+   for i in reverse 1..5
+   loop
+   dbms_output.put_line(i);
+   end loop;
+END;
+
+
+SELECT ename,job,deptno,
+        CASE deptno
+                   WHEN 10 THEN 'ACCOUNTS'
+                   WHEN 20 THEN 'SALES'
+                   WHEN 30 THEN 'RESEARCH'
+                   WHEN 40 THEN 'OPERATIONS'
+                   ELSE 'UNKNOWN'
+       END AS department
+FROM emp;
+
+DECLARE 
+    grade CHAR(1) :='B';
+    appraisal VARCHAR2(20);
+BEGIN
+    appraisal :=
+       CASE grade
+          WHEN 'A' THEN 'Excellent'
+          WHEN 'B' THEN 'vERY GOOD'
+          WHEN 'C' THEN 'good'
+          WHEN 'D' THEN 'average'
+          WHEN 'E' THEN 'poor'
+          ELSE 'no such grade'
+        
+        END;
+        dbms_output.put_line('Grade ' || grade || ' is ' || appraisal);
+        END;
+
+-----------------------------------------------------------------------------------------
+PLSQL BLOCKS
+1. Anonymous block
+2. Named block- procedures,functions
+
+main()
+{
+sum(10,20);
+}
+
+void sum(int x,int y)
+{
+
+}
+
+CREATE OR REPLACE FUNCTION:
+CREATE OR REPLACE FUNCTION FindTax(p_sal Number) return number
+ IS
+ BEGIN
+ return (p_sal*0.1);
+ END FindTax;
+
+-- Functions;
+    have to return something
+    you can call them in select statements
+--PROCEDURE:
+    can or cannot return anything - you cant call themin a select statement
+
+select empno,ename,sal,FindTax(sal) from emp;
+
+select FindTax(30000) from dual;
+
+
+CREATE OR REPLACE FUNCTION sumsal(designation emp.job%type) return number
+ IS
+    vsal emp.sal%type;
+ BEGIN
+ SELECT sum(sal) into vsal from emp
+ group by job
+ having job = designation;
+ 
+ return vsal;
+ end sumsal;
+ 
+select sumsal('CLERK') FROM dual;
+
+variable i number;
+exec:i:=sumsal('CLERK');
+print i;
+
+
+declare
+jobsum number;
+begin
+jobsum:=sumsal('CLERK');
+Dbms_output.put_line(' Total sal for clerk is '|| jobsum);
+jobsum:=sumsal('SALESMAN');
+Dbms_output.put_line(' Total sal for Salesman is '|| jobsum);
+jobsum:=sumsal('MANAGER');
+Dbms_output.put_line(' Total sal for Manager is '|| jobsum);
+jobsum:=sumsal('PRESIDENT');
+Dbms_output.put_line(' Total sal for President is '|| jobsum);
+jobsum:=sumsal('ANALYST');
+Dbms_output.put_line(' Total sal for Analyst is '|| jobsum);
+
+End;
+ ------------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE raise_sal(pid IN emp.empno%type)
+IS
+BEGIN
+    update emp
+    set sal=sal*1.5
+    WHERE empno=pid;
+end raise_sal;
+
+BEGIN
+raise_sal(7369);
+END;
+
+select * from emp
+
+create or replace procedure pro1(
+pid in emp.empno%type,
+pname out emp.ename%type,
+psal out emp.sal%type,
+pcomm out emp.comm%type)
+IS 
+BEGIN 
+SELECT ename,sal,comm INTO pname,psal,pcomm from emp where empno=pid;
+end pro1;
+
+create or replace procedure pro1(
+pid in emp.empno%type,
+pname out emp.ename%type,
+psal out emp.sal%type,
+pcomm out emp.comm%type)
+IS 
+BEGIN 
+SELECT ename,sal,comm INTO pname,psal,pcomm from emp where empno=pid;
+end pro1;
+
+BEGIN
+   pro1(7369,gname,gsal,gcomm);
+   DBMS_OUTPUT.PUT_LINE(gname|| ',' ||gsal ||',' ||gcomm);
+  END;
+
+
+variable gname varchar2(25)
+variable gsal number
+variable gcomm number
+execute pro1(7369,:gname,:gsal,:gcomm)
+print gname gsal gcomm
+
+PRODURES:
+
+parameters are:
+Types
+IN OUT
+
+INOUT
+FindSquare(4);
+int findSquare(int x)
+{
+int sq=x*x;
+return sq;
+}
+
+-----------------------------------------------------------------------
+NUMBER FUNCTIONS:
+
+select sqrt(16) from dual ;
+SELECT ename, sal, MOD( sal, 100)  FROM emp ;
+
+select power(3,2) from dual;
+select greatest(10,40,20) from dual ;
+select least(10,30,50) from dual ;
+
+select round (65.824,1) from dual;
+select round (65.874,2) from dual;
+select round (65.824,1) from dual;
+select round (65.874,2) from dual;
+
+select round (65.824) from dual;
+
+select trunc(20.345,1)  from dual;
+select trunc(20.345)20 from dual;
+
+SELECT CEIL(48.99) FROM DUAL; -- 49
+SELECT CEIL(48.11) FROM DUAL; --49
+SELECT FLOOR(48.99) FROM DUAL;-- 48
+SELECT FLOOR(48.11) FROM DUAL;-- 48
+
+
+SELECT MOD(4,2) FROM DUAL;
+
+select ename,empno,sal, job, decode( job, 'MANAGER', sal+5000,2000) new_sal from emp;
+
+
+SQL> select job,sal,decode(job,'ANALYST',sal+1000, 'CLERK',SAL+100,
+ 'MANAGER',sal+200,sal) "rev_sal" from emp ORDER BY JOB;
+
+select sysdate from dual ;
+select add_months(sysdate,4) from dual ;
+select last_day(sysdate) from dual ;
+select months_between(sysdate,'10-feb-09') from dual;
+select sysdate,to_char(sysdate,'DAY') from dual;
+select sysdate,to_char(sysdate,'YEAR') from dual;
+select to_number('100') from dual ;
+SQL> SELECT TO_CHAR(SYSDATE,'DDTH " OF " FMMONTH YYYY') FROM DUAL;
+
+SELECT TO_CHAR(SYSDATE,'DDTH " OF " MONTH YYYY') "NEW" FROM DUAL;
+SELECT TO_CHAR(SYSDATE,'DDTH " OF " MON YYYY') "NEW" FROM DUAL;
+SELECT ENAME,TO_CHAR(HIREDATE,'DDTH "OF" MONTH YYYY') "NEW" FROM EMP;
+SELECT TO_DATE('19OCT1959','DD-MON-YYYY') FROM DUAL;
+SELECT TO_CHAR(TO_DATE('19OCTOBER1959','DD-MON-YYYY') , ‘DD-MON-YYYY’)FROM DUAL;
+
+TO_CHAR(TO_DATE('19OCTOBER1959','MON-DD-YYYY') , ‘DD-MON-YYYY’)  
+
+TO_CHAR(TO_DATE('19OCTOBER1959','YYYY-DD-MON') , ‘DD-MON-YYYY’) 

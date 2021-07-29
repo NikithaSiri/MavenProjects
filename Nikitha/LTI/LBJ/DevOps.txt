@@ -1,0 +1,39 @@
+DevOps  - Tools that help Devlopers / Operation Team 
+
+team dev - Application - 
+BackEnd - oracle / sql serve
+FrondEnd - Java. .net php    ---> jar ojdbc.jar - manually build path , lib 
+SPA - Angular /react 
+----------------------------------------
+SDLC life Cycle - Agile methodlology 
+How you will deploy application to the client system ? 
+Eclipse - db - jar download - eclipse run app - console - output - 
+
+Deployement of application - client system 
+
+jar files- core java app / war file ( web application ) /zip 
+it is packed ( along with class files, dependancies like jar files , resource files and all configuration files )
+
+you build the project : manually -- Maven -Atomatic build , testing and deployement
+
+compile source code - class files   - n class file 
+copy resources - imges , xml file( cofiguration ) , dependancies - ojdbc6 jar    
+Testing - compile and run tests - Junit5
+pacakge project - jar files (if core java app) 
+war files (if web app)
+deploy project  - client systems 
+clean up - 
+
+
+
+3 steps : check evertime with project settings 
+step 1> 
+	project - >properties -> Java build path -> libraries tab -> JRE Sys Lib ( by def 1.5 ...)-> 
+	edit -> select workspace default jdk1.8 
+step 2> 
+	project - > properties -> Java Compiler -> complience level -> select 1. 8
+step 3> 
+	project facets -> convert to ....form -> check -> java -checkbox (selected ) & showing 1.8 
+
+
+

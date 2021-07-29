@@ -1,0 +1,15 @@
+<p>demo-switch works!</p>
+
+
+<div *ngFor="let car of Cars" [ngSwitch]="car.color" >
+    
+    <div *ngSwitchCase="'blue'" class="blue"  >
+        {{car.name}} {{car.color}}
+    </div>
+    <div *ngSwitchCase="'yellow'" class="yellow"  >
+        {{car.name}} {{car.color}}
+    </div>
+    <div *ngSwitchCase="'silver'" class="silver"  >
+        {{car.name}} {{car.color}}
+    </div>
+</div>

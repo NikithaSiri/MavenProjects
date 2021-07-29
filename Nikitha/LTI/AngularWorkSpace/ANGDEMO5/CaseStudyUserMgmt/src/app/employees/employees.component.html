@@ -1,0 +1,21 @@
+<p>employees works!</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Gender</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of empList">
+            <td>{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.city}}</td>
+            <td>{{e.gender}}</td>
+            <td>{{e.department}}</td>
+        </tr>
+    </tbody>
+</table>

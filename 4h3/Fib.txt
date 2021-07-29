@@ -1,0 +1,14 @@
+import java.util.*;
+public static void main(String args[])
+{
+class Fib
+{
+ while(f>0)
+  int f0=0;
+  int f1=1;
+  int f=f0+f1; 
+  System.out.println(f);
+  f1=f0;
+  f=f1;
+}
+}

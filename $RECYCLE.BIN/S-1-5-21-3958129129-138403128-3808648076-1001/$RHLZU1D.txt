@@ -1,0 +1,53 @@
+DML- INSERT,UPDATE,DELETE
+select * from emp
+
+ insert into emp values( 1234,'JAY','CLERK',7566,'07/05/1981',7000,null,10)
+
+update emp
+set sal=6000
+where empno=7566
+
+delete emp where empno= 7900;
+desc emp
+
+Alter table emp ADD five number(5,2)
+
+Alter table emp
+modify five number(7,2)
+-- you can't reduce or decrease the size of column, if it has already a min size data 
+--either column has to be empty, 
+--increase size - ok (if you have data)
+
+alter table emp
+rename column sal to salary
+
+alter table emp
+drop column sal
+
+update emp1 SET comm = 0 WHERE comm IS NULL;
+
+ALTER TABLE emp
+MODIFY comm NUMBER(2) NOT NULL;
+
+drop table emp- all records r deleted , mem structure dropped, u cant rollback
+
+create view v2
+as
+select * from emp
+where deptno=20
+WITH CHECK OPTION
+
+
+---------------------------------------------------------------------------------------------------------------------------
+PLSQL
+
+Structure:
+
+DECLARE
+
+BEGIN
+
+EXCEPTION
+
+END;
+           

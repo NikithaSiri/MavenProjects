@@ -1,0 +1,22 @@
+<p>customer works!</p>
+{{custList}}
+<table>
+    <thead>
+        <tr border:1>
+            <th>No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+<tbody>
+<tr *ngFor="let cRec of custList;">
+    <td>{{cRec.custNo}}</td>
+    <td>{{cRec.custName}}</td>
+    <td>{{cRec.custAdd}}</td>
+    <td>{{cRec.city}}</td>
+    <td>{{cRec.country}}</td>
+</tr>
+</tbody>
+</table>

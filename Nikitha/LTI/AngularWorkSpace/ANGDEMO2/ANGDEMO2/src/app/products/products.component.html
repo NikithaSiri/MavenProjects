@@ -1,0 +1,19 @@
+<p>products works!</p>
+<table>
+    <thead>
+        <tr border:1>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cost</th>
+            
+        </tr>
+    </thead>
+<tbody>
+<tr *ngFor="let pRec of prodList;">
+    <td>{{pRec.prodId}}</td>
+    <td>{{pRec.prodName}}</td>
+    <td>{{pRec.prodCost}}</td>
+    
+</tr>
+</tbody>
+</table>

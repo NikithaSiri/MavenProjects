@@ -1,0 +1,27 @@
+<p>product works!</p>
+
+<div class="container">
+    <div class='table-responsive'>
+         <table class="table table-striped">
+             <thead class=dark>
+                 <tr>
+                     <th>ID</th>
+                     <th>Name</th>
+                     <th>Price</th>
+                     <th>Details</th>
+                 </tr>
+             </thead>
+             <tbody>
+              <tr *ngFor="let p of prdList;">
+                     <td>{{p.productId}}</td>
+                     <td>{{p.prdName}}</td>
+                     <td>{{p.price}}</td>
+                    
+                     <td><a [routerLink]="['byid',p.productId]">{{p.productId}}</a></td>
+             </tr> 
+             </tbody>
+         </table>
+     </div>
+
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,370 @@
+forEach
+
+casting primitive int res=(float)x/y;
+casting of non-primitive - class, array,String-wrapper classes
+
+int i=10; - stored in stack
+
+Student s=new Student(); - heap
+s=null compile time
+run time object created
+new operatorr passes ref to s
+array-markss
+
+------------------------------------
+Enhanced for loop
+for(int i:myaray)
+{
+syso(i);
+}
+-------------------------------------
+difference btwn while and do while
+ 
+inti=10;
+while(i>10)
+{
+syso(i);
+}
+
+
+do
+{
+syso(i);
+i++;
+}
+while(i>10)
+
+used in menus
+break continue;
+----------------------------------------------------------------------------
+
+New Features:
+1. date time api
+2.lambda
+
+Constructors:
+To initialize objects with default values
+** default constructors?
+Access specifiers:
+public
+private
+protected--|->inheritance, in same package or other package
+default----|within the same package
+
+diff between protected and default:
+
+********difference between Abstract classes and interfaces
+abstract class-partial abstraction
+constructors--own methods also
+u cant instantiate
+donot support extend(a,b) multiple inheritance
+interfaces-full abstraction
+multiple inheritance
+only public abstract methods 
++
+static final variables 
++
+new feature-default methods (forEach made changes jvm - allowed default)
+reason of default mthods:
+if a class implements any interface and later if interface gets 
+modified by adding method then in this case class has to 
+implement the newly added method and for that we need to change
+the existing code of class.
+->have their own implementation inside the packages
+
+refer to the below interface prog from eclipse:
+public interface IPerson{
+public final String COMPANY_NAME="LTI";
+
+-------------------------------------
+static variablr | final variable( Facebook prog)
+->initialized once, shared by all instances of the class
+->called as class variable
+
+Final-pi value - can't change
+interfaces static- BANK NAME(each object can share same name)
+-----------------------------------------------------------------------
+
+static methods | final methods
+->no need of objevt to be created
+->can call directly with class name
+ex: can't override, math class Methods sqrt() etc. 
+final methods-> String methods eg: array.sort();
+---------------------------------------------------------------------------
+static classes | final classes(you cant extend)
+inner classes
+----------------------------------------------------------------
+this-refers to current object (used in getter ,setter methods)
+------------------------------------------------------------------
+super-super class/parent class reference
+super class of all objects in java is Object some methods-gc() etc
+garbage collector-java
+no reference to the object, deallocated that member
+removes unused objects
+demon threads- run in background
+-------------------------------------------------------------------------------------------
+when to use abstract class:
+when you want to go for a partial part, few methods with own implementation
+you can extend only one abstract class
+-------------------------------------------------------
+when to use interfaces:
+Interface - generally when there is a need for common functionality for several classes
+--------------------------------------------------------------------------------------
+Interface Interfaces?
+only one method
+purpose 
+****example: comparator,runnable(run),comparable(compareTo())
+lambda in java implement function interface internally
+ How you will make interface functional?
+@functional interface
+------------------------------------------------------------
+Super Class -throwable
+1. ERROR
+2.EXCEPTION
+
+1.ERRORS:
+Handled by jvm not developer- eg. virtual machine
+
+2.EXCEPTIONS:
+2 types
+1. checked- syntax errors during compilation if we don't handle them IO Exception, SQL Exception
+2. unchecked- zero divide error- compile time not checked - runtime, Arithmetic
+--------------------------------------------------------------------------------------------------------------------------
+MULTIPLE CATCH:  
+catch(ArithmeticException e)
+{
+}
+catch(Exception e)
+{
+}
+
+shortcut for multiple catch:
+catch(ArithmeticException | Exception e) -check sequence
+-------------------------------------------------------------
+NESTED BLOCK:
+inner block exceptions can be thrown outside block
+-----------------------------------------------------------
+Finally block:
+mainly used to close resources before exiting the application
+----------------------------------------------------------------
+Creating user defined exceptions: 
+using extends exception and override method getMessage()
+Why do we need them?
+For the exceptions which cannot be handled by java to implement business rules
+eg: salary should be within range
+cant  vote before 18
+age can't be negative
+-----------------------------------------------
+Difference between thow and throws
+method()
+{
+	if()
+	{
+		throw new myOwnExp(); ->new instance of user def exp
+	}
+}
+
+main()
+{
+calling method1(); //handle by 2 ways:
+ i) add try catch block- prefer this in last user level block
+ ii)add throws-for a block where you are calling
+jvm terminates with exp messages thrown
+--------------------------------------------------
+Superclass behaviour- 2 demos:
+--------------------------------------------------------
+String str1="LTI";
+String str2="LTI";
+syso(str1==str2);
+True // String pooling,Two different object references pointing to the same obj in-memory heap
+String s3= new String("LTI");
+syso(str1==str3);
+False// 
+--------------------------------------------------------------------------------------------
+String str1="LTI";
+String str2="infotech";
+str1+str2;
+str1.concat(str2);
+syso(str1); // LTI 
+because strings are immutable,  thus we use string buffer 
+----------------------------------
+StringBuffer-extra methods
+but one drawback is synchroniztion/thread safe/slow in performance
+thus we go for String builder
+--------------------------------------------------------------------
+StringBuilder- not synchronized
+String Methods- substring, extra methods
+String tokenizer
+*****
+--------------------------------------------------------------------
+DateTimeApi - Instant new feature
+LocalDate
+Formatter
+-----------------------------------------------------------------------
+Collections:
+why collections: bcoz in arrays size is fixed
+why collection- dynamically grows, many readymade methods,heterogeneous objects can be stored
+drawback of array objects
+why collection:3/4 points
+diff between List,Set,Map
+Diff b/w ArrayList,LinkedList
+diff btwn Iterator and ListIterator
+-------------------------------------------------------------------------------------------------
+Emp e1=new Emp(1111,"lti");
+Emp e2= new Emp(1112,"TCS");
+Set mySet=new HashSet();
+mySet.add(e2);
+mySet.add(e2);  // only one record is added bcoz set dosen't allow duplicate elements
+
+Emp e1=new Emp(1111,"lti");
+Emp e2= new Emp(1111,"TCS");
+Set mySet=new HashSet();
+mySet.add(e2);
+mySet.add(e2);
+// now 2 elements are added thus the use of set is wasted
+thus we override hashCode and equals method
+-----------------------------------------------------------------------
+hashCode() - integer value generated by jvm to identify similar objects 
+data-
+ can we have a same hashCod for differnt object?
+-------------------------------------------------------------------
+Emp e1=new Emp(1111,"lti");
+Emp e2= new Emp(1111,"TCS");
+Set mySet=new TreeSet();
+mySet.add(e1);
+mySet.add(e2);
+assuming hashcode and equals are overridden
+ClassCastException- we need to implement comparable interface--methods
+---------------------------------------------------------------
+Comparable and comparator interfaces
+used for: 
+sorting objects
+natural sorting - Comparable-method( compareTo())
+how to call?
+Collections.sort(myList);
+
+Why Comparator?
+apart from nnatural sorting or multiple sorting
+
+methods- compare( , ) two objwcts
+EmpSortBySal  EmpSortByAge  EmpSortByCity
+Collections.sort(myList,newEmpSortByAge());
+----------------------------------------------------------------
+Why should we use Map?
+Advantage  over ArrayList
+1.work on a key value pair, keys are unique
+methods used to add object - put and get 
+key value pair keys are unique
+Huge data- online reservations/online shopping
+Huge records- ArrayList-index working, continuous mem allocation- slows performance
+
+mem structure-bukets to hold simiar objects based on hashcode values
+16 bit array - hold object -linked list
+
+convert them
+Map.Entry<K,V> entry=myMap.entrySet()
+hashkey-
+much faster than arrays
+----------------------------------------------------------------------------------------
+Generics: they provide compile time safety
+-------------------------------------------------------
+
+
+JDBC types drivers?
+4, name and use- pdf
+ 
+JDBC-ODBC
+JDBC-Native
+JDBC Net Pure-three tire architecture/server db connectivity 100%pure
+---------------------------------------------------------------------------------
+Static class- DriverManager.getConnection
+Connection
+
+type of statement object
+1.statement - static queries
+2.preparedStatement-queries are prepared user inputs at runtime
+		   -precompiled so much faster in execution
+3.Callable- calling ready procedures and functions
+------------------------------------------------------------------------
+types of methods avail:
+1.executeQuery()-select, returns resulSet
+2.executeUpdate()-DML, returns no of records affected
+3.execute()-both, returns boolean
+-------------------------------------------------------------------
+ResultSet
+methods-cursor to first record? rs.next();
+Result syntax
+---------------------------------------------------------------------
+pstmt- ? placehlders
+setInt(), out parameters- method registerOutParameter
+-----------------------------------------------------------------------------------------
+Column type of table
+resultSet
+resultSetMetaData
+info database- DataBaseMetaData
+---------------------------------------
+SreamApi
+why?
+Huge amount of objects
+when you want toperform or process collectve operations like find max salaried person traverse
+search salary compare -large processing
+total sal-all emps
+
+Using collections - lot of cod/time/performance
+
+StreamApi-
+1.parallel processing- takes adv multi core cpus -fork join
+2.faster
+3. Dev dont have to write totally new coding
+4.Collection framework- ArrayList-easily conert into streams 
+5.apply some methods
+	-intermediate-map,reduce,filter etc
+	-terminating-collect etc
+6.Use Lambda very efficiently
+- lambdas are designed to work wth streams
+bothof them makes coding dtyle simple/ pereformance wise excellent effect 
+
+casting primitive   int res=(float) x/y;   
+casting of non primitve - class , arrays , String - Wrapper classes 
+
+int i=10; - stored in stack 
+
+Student s= new Student();  heap 
+s= null compile time 
+run time object created
+new operator passes ref to s
+
+array - marks - 
+---------------------------------------------------------------------------------------
+is-a, has-a relationship
+
+
+
+=================================================================================================
+=======================================================================================================
+
+WEB :
+GET:
+ is used to get data from server.. and
+ ->seen to everyone
+->not for sensitive info
+POST:
+ to submit data to server
+get method carries parameters in url
+while post carries parameter in secure format
+while in post data hide in  body
+->used for usernames and passwords
+->sensitive data
+
+
+
+
+
+
+
+
+
+
+
+
+

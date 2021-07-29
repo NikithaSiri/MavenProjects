@@ -1,0 +1,33 @@
+<!-- no br tag allowed -->
+<!-- no table tag allowed -->
+<!-- use css strictly for the layout and look and feel -->
+<html>
+<head>
+<style>
+#myformdiv {
+border: 1px lightgray solid;
+border-radius: 5px;
+width: 350px;
+margin: auto;
+padding: 10px;
+}
+</style>
+</head>
+<body>
+<form>
+<div id="myformdiv">
+<h1>Create Account</h1>
+<label>Your name</label>
+<input required />
+<div id="nameerror"></div> <!-- document.getElementById("nameerror").innerHTML = "Name is required"
+<label>Mobile number</label>
+<select>
+<option>+91 India</option>
+<option>+1 US</option>
+</select>
+<input />
+<button type="submit">Continue</button>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+
+
+Agenda:
+
+1.Java OOP
+
+What is OOP?
+Any Programming Language is prefered
+
+ Ability of the programmer to programme what he/she sees and hears....
+
+Abilty to create of something existing  by identifyying its state and behaviors
+
+All OOP Languaged foiolow bottom-up-Aproach
+
+Customer:----> Create and application/software to Store the information of  Employees
+EMS---->EIS
+
+Programmer
+Employees in real world
+Employee states and behaviour
+
+Employee is and Object
+Employee has states and behaviour
+
+
+// Syntax Building for the Application
+
+In Java How to Build the Objects ie(Blue Print of the Object)
+
+We use a class has key word to create classes
+
+class Employee
+{
+int eid
+String name,email,phone,
+
+int salary ;
+void viewsalry()
+{
+}
+applyleave()
+{
+}
+workAssigned()
+{
+
+}
+}
+
+
+// Then creating of object to make the states and beahviours working for it
+
+in Java we create an object of a class by using new keyword
+
+Employee obj=new Employee();
+	obj.eid=100;
+	obj.name="aaa";
+	obj.salary=1000;
+
+
+
+
+
+Why OOPS became Popular?
+Bcoz of ceartain Features of OOP
+1.Encapsulation: Hiiding the complex /essential details of the code
+2.Abstraction: Expose essentials details of the code
+3.Inheritance: Reusablity,Generalization& Specialization,Identifying the relationships between the Objects
+4.Polymorphism: Makeing ur object to perform diiferent operation for different cases
+
+
+
+
+Employee
+
+Differnt Types of Employee
+
+Organiztion has 2 Types of  Employees
+ 
+a.PermanentEmployee : some thig which is not common to other type of employee (proabarion period 3 months)
+
+b.Contractual:some thig which is not common to other type of employee  ( term aloocated,pf)
+
+Employee
+
+PermEmp is a type of Employee
+
+ContractEmp is a Type of Employee
+
+
+Soln
+PermEmp is-A  Emploee
+
+ContractEmp is-A Type of Employee
+in java to associate is-a relationship how to syntactically achieve
+
+
+use extends keye
+
+Comapny  has-A (Employee,perm,contract)--->Aggreation( ie it is another form of inheriantce)
+
+
+
+Polymorphism
+
+Employee has work,Every Employee has work
+
+
+
+Abstract Class: and imaginary class
+
+abstract class Animal: abstract
+class Cat extends Animal
+Dog
+Ele
+
+
+Employee : Object
+Permemployee
+Contract
+
+
+
+
+2.Case Study
+
+
+
+
+
+3.Sprint 3
+
+
+
+Ask Forum:
+
+Question No:
+problem:
+Under which Stage:
+
+

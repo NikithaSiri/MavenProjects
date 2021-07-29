@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Table
+        </title>
+    </head>
+        <body>
+            <table>
+                <tr>
+                    <th>Student1</th> 
+                    <th>student2</th>
+                    <td>Jay</td>
+                    <td>Vijay</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td>200</td>
+                </tr>
+            </table>
+        </body>
+    </html>

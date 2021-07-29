@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The form method="POST" attribute</h1>
+
+<form action="welcome.html" method="POST" target="_blank">
+
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>
+Appends form-data into the URL in name/value pairs <br>
+The length of a URL is limited (about 3000 characters)<br>
+Never use GET to send sensitive data! (will be visible in the URL)<br>
+GET is better for non-secure data, like query strings in Google
+</p>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+Git GitHub:
+Git-tool
+GitHub(owned by microsoft)-platform(provides hosting service to work with all different projects that uses git and which holds all repositories)
+
+->version control system
+->keeps track of code
+->collaboration
+
+if many developers are working on same project in different systems, it is necessary to have a clone(copy) of project
+
+Git keeps track of all the versions(modifications) of code
+
+version-1: add(x,y,z)
+version-2: add(x,y)
+version-3: add(a,b)
+
+even after version3 is available we can go back to version 1 i.e., the history is available
+
+earlier versions can also be used as it is available in git 
+
+COMMANDS :
+
+> git init
+>git clone <URL of GithHUb project>
+	project gets cloned / copy gets created physically on local maching
+> cd <projectName>  / cd MyGitHubProject
+>D:/MyGitHubProject  --> add some file --> hi.txt 
+>D:/MyGitHubProject > git add .     ( adds files locally) 
+>D:/MyGitHubProject > git commit -m "my First commit , adding hi.txt file" 
+>D:/MyGitHubProject > git push origin main ->
+		 login with GitHub Credentials  -> refers GitHub project -> see the new file added 
+
+-----------------------------
+•	git add is a command used to add a file that is in the working directory to the staging area.
+•	git commit is a command used to add all files that are staged to the local repository.
+•	git push is a command used to add all committed files in the local repository to the remote repository. So in the remote repository, all files and changes will be visible to anyone with access to the remote repository.
+•	git fetch is a command used to get files from the remote repository to the local repository but not into the working directory.
+•	git merge is a command used to get the files from the local repository into the working directory.
+•	git pull is command used to get files from the remote repository directly into the working directory. It is equivalent to a git fetch and a git merge .
+
+=================
+What is Version Control?
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. So ideally, we can place any file in the computer on version control.
+A Version Control System (VCS) allows you to
+revert files back to a previous state, 
+revert the entire project back to a previous state, 
+review changes made over time, 
+see who last modified something that might be causing a problem, who introduced an issue and when, and more. 
+
+Using a VCS also means that if you done something wrong  or lose files, you can generally recover easily. 
+And sometimes you just want to know “who wrote this crap”,
+ and having access to that information is worthwhile ?.
+What is Git?
+Git is a free, open-source version control software.
+Git acts as content tracker. 
+======================================
+Git is a revision control system, a tool to manage your source code history.
+GitHub is a hosting service for Git repositories.
+So they are not the same thing: Git is the tool, GitHub is the service for projects that use Git.
+
+=======================
+If you consider a file in your Working Directory, it can be in three possible states.
+1.	It can be staged. Which means the files with the updated changes are marked to be committed to the local repository but not yet committed.
+2.	It can be modified. Which means the files with the updated changes are not yet stored in the local repository.
+3.	It can be committed. Which means that the changes you made to your file are safely stored in the local repository.
+
+-----------------------------------

@@ -1,0 +1,231 @@
+1. In main.ts file last line platformBrowserDynamic().bootstrapModule(AppModule) responsible for bootstraping of angular application. platformBrowserDynamic() part of this line indicates that we are about to boot Angular in a browser environment.
+
+3. AppModule is our root module which is the entry module for our application, this can actually be any of the modules in our application but by convention AppModule is used as the root module.
+
+//number - All numeric values are represented by the number type, 
+//there aren't separate definitions for integers, floats or others.
+//string -  'single quotes' or "double quotes".
+//Boolean - true or false, using 0 and 1 - compilation error.
+//Any - A variable with this type can have it's value set to a string, number, or anything else.
+//Arrays - two possible syntaxes: my_arr: number[]; or my_arr: Array<number>.
+//Void - Used on function that don't return anything.
+//other 
+//https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Node:Javascript framework
+
+Vs code is a tool
+
+cli:(Command Line Interface)-to run java script outside web browser
+
+npm:Node Package Manager
+npm install -g@angular/cli
+
+angular.json:application configurations-> outputPath,index,Main 
+
+package.json:versions are to be maintained/updated
+
+common packages like :style.css,index.html,main.ts
+
+-----------------------------------------------------------------------
+Angular Js vs Angular:
+
+Angular JS writeen using google-typescript 
+Angular: architecture wise totally newly written framework (keeping mobile apps in mind)
+------------------------------------------------------------------------------------------------
+Competitors of Angular:
+1.React-facebook
+2.Amber
+---------------------------------------------------------------------------
+Popular websites using Angular:
+1.PayPal
+2.Netflix
+3.YouTube
+4.Gmail
+-----------------------------------------------------------------------------
+Why Typescript:
+1.Safe
+2.Strictly typed
+------------------------------------------------
+Difference Between Let and Var
+Var scope is global
+Let scope is local
+-----------------------------------------------------------------------
+Features of Angular:
+1.Single page application
+2.No page refresh/reload effect to user
+3.work offline
+4.Modules are loaded in browser->root module,featured module
+->root module: default loaded(Login)
+5.taking advantage of local storage from browser and html
+6.all  latest browsers support
+7.Mobile apps
+8.MVC
+9.Dependency injection
+10.Manipulates DOM elements
+------------------------------------------------------------------------------
+**************IMPORTANT***************
+Flow of Angular Application/Project:
+1.main.ts -platformBrowserDynamic().bootStrapModule(AppModule)
+          -Specifies that our app will run on any browser
+          -Root module willbe AppModule: loaded in mem
+
+2.app.module.ts-Entry Module for our aplication/Parent of all components
+                -bootstrap:[AppComponent] -by default AppCompo is invoked
+
+3.AppComponent-Root Component
+  app.component.ts-App Component
+  Decorators-3 1>selector 2>templateUrl 3>SyleUrl
+---------------------------------------------------------------------------------
+can i work without templateURL- any other way to present your data
+
+template:"                         " can apply syle/html tags
+-------------------------------------------------------------------------------------
+Component-building blocks of application - acts as a controller also
+they contain constructors, methods,decorators
+-we can export data to outside html files
+------------------------------------------------------------
+how to create component in Angular - ng g c<name>
+run ng serve
+why -o(to run in browser)
+-----------------------------------------------------------
+Every component has it's own html,css
+
+root file- the data displayed by default in a browser is-indexfile-has a selector<app-root>
+body of index.html--> app.component.html(acts as home page)
+-------------------------------------------------------------------------------------------------------------
+Data Binding:
+types:
+1.One way Binding - interpolation({{}}) to display data in string format from como->view
+                  - property binding []="" property of control- bind data(compo-view)
+                  -event binding->onClick-(view->compo)
+2.Two way Binding -   
+-------------------------------------------------------------------------------------------------------------
+Pipes:System Defined
+
+uppercase,lowercase etc.
+DateFormat -pipes
+currency
+-----------------------------------------------------------------------------------------------------
+Structural Directives :Commonly used 	
+Structural directives alter layout by adding, removing, and replacing elements in DOM.									
+ngFor	
+ngSwitch	
+ngIf
+	
+Attribute Directives : Commonly used 	
+Attribute directive alter the appearance or behavior of an existing element. 											
+ngModel	
+ngClass	
+ngStyle
+
+
+
+
+====================================================================================
+
+  Cars:any[]=[
+    { name :"BMW",      average:12,     color:"blue"},
+
+    { name :"Ford",     average:10,     color:"yellow"},
+
+    { name :"Suzuki",     average:18,    color:"silver"},
+
+  ];
+-----------------------------------
+<p>demo-switch works!</p>
+
+
+<div *ngFor="let car of Cars" [ngSwitch]="car.color" >
+    
+    <div *ngSwitchCase="'blue'" class="blue"  >
+        {{car.name}} {{car.color}}
+    </div>
+    <div *ngSwitchCase="'yellow'" class="yellow"  >
+        {{car.name}} {{car.color}}
+    </div>
+    <div *ngSwitchCase="'silver'" class="silver"  >
+        {{car.name}} {{car.color}}
+    </div>
+</div>
+------------------------
+.blue
+{
+    color:blue;
+}
+.yellow
+{
+    color:yellow;
+}
+.silver
+{
+    color:silver;
+}
+
+
+
+=========================
+
+
+
+--[ngStyle]
+
+  characters: any[] = [
+    {
+      actor_name: "Akshay Kumar",
+      char_name: "Raju",
+      gender: 'Male',
+      status: 'Alive'
+    },
+    {
+      actor_name: "Madhubala",
+      char_name: "Anarkali",
+      gender: 'Female',
+      status: 'Dead'
+    },
+  ];
+--------------
+ 
+  <div *ngFor="let celeb of characters ">
+    <p [ngStyle]="{'background-color':celeb.gender==='Male'?'yellow':'pink' }">
+         {{celeb.actor_name}} {{celeb.char_name}} {{celeb.gender}}  {{celeb.status}}</p>
+</div>
+
+
+
+=================================================================
+--[ngClass]
+
+
+  Cars: any[] = [
+    {
+      name: "Ford",
+      color: "blue"
+    },
+    {
+      name: "BMW",
+      color: "red"
+    },
+    {
+      name: "Suzuki",
+      color: "purple"
+    },
+
+  ];
+
+--------------
+ 
+  <div *ngFor="let celeb of characters ">
+    <p [ngStyle]="{'background-color':celeb.gender==='Male'?'yellow':'pink' }">
+         {{celeb.actor_name}} {{celeb.char_name}} {{celeb.gender}}  {{celeb.status}}</p>
+</div>
+
+
+
+
+
+
+
+
+

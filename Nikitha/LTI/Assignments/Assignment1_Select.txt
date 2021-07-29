@@ -1,0 +1,24 @@
+•	List all the details of employees 
+•	List employee names, hire date, salaries, department numbers of all employees. 
+•	List name, sal , commission  and department number   of the employees who are working in departments 20 , 30 and 40
+•	List the name , comm And job of the employees whose designation are either clerk or salesman
+•	List the name and monthly income of the employees belonging to dept no 30.
+•	List the name & Designation of the employees who have the highest designation.
+•	List the name, sal & designation of the employees who are having managers.(people who are reporting to someone)
+•	List the name & Designation of the employees who have joined before Jan 82.	
+•	List the names, designation & income for 10 years annual income of the employees who are working in departments 10 & 30.			
+•	List the name & experience (in years) of the employees who are working as CLERKS.
+•	List the names & Mgr of the employees whose names should start with ‘A’ & end with ‘S’.
+•	List the names & salary of the employees whose names should start with ‘M’or end with R.
+•	List the names & job of the employees whose names should contain ‘A’ as the second or third character & Ending with either ‘N’or’S’
+•	List the names of employees who have joined in the year 1982
+•	List the names, exp in yrs and comm. Of president. IF commission exists display it otherwise display 0 for comm.
+•	List the details of dept where the location of the dept is in Boston
+•	List the details of the employees with the elaborated Column Headers
+•	List the names and salary of the employees who are earning more than 40 k per annum
+•	List the names, job and hire date  of the employees and sort them depending on their exp in ascending order 
+•	List the names, monthly income and annual income of the employees and sort them in descending order depending on their annual income.
+•	List the different types of  department  numbers from the emp table 
+•	List the different types of designations and sort them in ascending order 
+•	List the name and salary of the employees who are earning between 1000 and 3000 and sort them depending on their sal and income
+•	List the empno, names and deptno and  no of employees who have got exp of more than 18 yrs.

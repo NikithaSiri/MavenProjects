@@ -1,0 +1,57 @@
+===================
+Life Cycle 
+=================
+There are types of dependencies in https://www.baeldung.com/maven-dependency-scopes
+Maven is build on central concept of maven build life cycle.
+i.e process of building and distributing a perticular project is clearly defined .
+
+1.For web applications no need to deploy or nothing need to do at client side except simple browser with url. all web applications are deployed at Server Machine(IIS) only, that application can be accessed by all client machines (any browser is enough).
+2.For Desktop applications Wherever you want to use the application, need to deployed/installed in that system.
+first step is in building - verification data sources and reports and only after that - deploying.
+General term : 
+Build -->to Compile the project.
+--------->process all of my code/artifacts and prepare them for deployment. 
+---------->Meaning compile, generate code, package, etc.
+Deploy --->to Compile the project & Publish the output
+-----------> take all of my artifacts and either copy them to a server, 
+                    or execute them on a server/ client machine
+
+Maven Phases  - Life Cycle phases 
+most common default lifecycle phases executed.
+	validate: validate the project is correct and all necessary information is available
+	compile: compile the source code of the project  - all .java files -> .class files 
+	test: test the compiled source code using a suitable unit testing framework(Junit5). These tests should not require the code be packaged or deployed
+	package: take the compiled code and package it in its distributable format, such as a JAR.
+	integration-test: process and deploy the package if necessary into an environment where integration tests can be run
+	verify: run any checks to verify the package is valid and meets quality criteria
+	install: install the package into the local repository, for use as a dependency in other projects locally
+	deploy: done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+
+Maven has 3 types of Repositories
+1.Local--available on your disk locally(.m2/repository)
+2.Central--Maven's own repository(Rich set)-from here download into local repos
+3.Remote--organization keeps their jars into their own systems-
+
+
+. Key features of Maven - Automated deployment 
+•	Convention over configuration: Maven tries to avoid as much configuration as possible, by choosing real world default values and supplying project templates (archtypes).
+•	Dependency management: It is possible to define dependencies to other projects. During the build, the Maven build system resolves the dependencies and it also builds the dependent projects if needed.
+•	Repository: Project dependencies can be loaded from the local file system,
+		 from the Internet or public repositories. The company behind the Maven project also provides a central repository called Maven Central.
+•	Extensible via plug-ins: The Maven build system is extensible via plug-ins, which allows to keep the Maven core small. The Maven core does for example not know how to compile Java source code, this is handled by the compiler plug-in.
+
+
+
+Features of JUnit
+•	JUnit is an open source framework, which is used for writing and running tests.
+•	Provides annotations to identify test methods.
+•	Provides assertions for testing expected results.
+•	Provides test runners for running tests.
+•	JUnit tests allow you to write codes faster, which increases quality.
+•	JUnit is elegantly simple. It is less complex and takes less time.
+•	JUnit tests can be run automatically and they check their own results and provide immediate feedback. There's no need to manually comb through a report of test results.
+•	JUnit tests can be organized into test suites containing test cases and even other test suites.
+•	JUnit shows test progress in a bar that is green if the test is running smoothly, and it turns red when a test fails.
+•	The org.junit package contains many interfaces and classes for junit testing such as Assert, Test, Before, After etc.

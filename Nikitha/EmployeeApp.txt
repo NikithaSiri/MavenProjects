@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.employee.domain.Employee;
+import com.employee.impl.EmplopyeeServiceImpl;
+
+
+public class EmployeeApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+	Scanner s=new Scanner(System.in);
+	
+	System.out.println("Enter Name");
+	String name=s.next();
+	String desg=s.next();
+	int id=s.nextInt();
+	
+	EmplopyeeServiceImpl obj=new EmplopyeeServiceImpl();
+	
+	ArrayList<Employee> al=new ArrayList<>();
+	Employee eobj=new Employee(id,name,desg);
+	al.add(eobj);
+	
+	obj.addEmployee(al);
+	
+	}
+
+}

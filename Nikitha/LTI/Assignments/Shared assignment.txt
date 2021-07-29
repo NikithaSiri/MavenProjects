@@ -1,0 +1,87 @@
+Student Management Casestudy Day 3
+-------------------------------------------------------
+
+Topics Covered
+----------------------
+Exception Handling
+
+Plan
+------
+- Create a user defined Exception called as EnrollmentException
+
+- Then modify the enroll method we wrote on Day 2 to throw the above exception:
+	- In case if the Student tries to enroll for the same course again
+	- In case if the no. of students for a course exceeds 50
+
+
+- (Optional) 
+	Next we will create console based user interface for our application.
+
+- To start with, create an abstract class/interface (UserInterface) with the following methods:
+	public void showFirstScreen();
+	public void showStudentScreen();
+	public void showAdminScreen();
+	public void showAllStudentsScreen();
+	public void showStudentRegistrationScreen(); // Execute the register method of AppEngine class
+	public void introduceNewCourseScreen();
+	public void showAllCoursesScreen();
+
+  - Then code for showFirstScreen() may look like this in Java:
+
+	public void showFirstScreen() {
+		System.out.println("Welcome to SMS(Student Mgmt. System) v1.0");
+		System.out.println("Tell us who you are : \n1. Student\n2. Admin");
+		System.out.println("Enter your choice ( 1 or 2 ) : ");
+		Scanner scanner = new Scanner(System.in);
+		int op = Integer.parseInt(scanner.nextLine());
+		switch(op) {
+		case 1:
+			showStudentScreen();
+			break;
+		case 2:
+			showAdminScreen();
+			break;
+		}
+	}
+
+- From the App class now, all we would do in the main method is:
+   - new UserInterface().showFirstScreen();
+
+===========================
+Student Management Casestudy Day 4
+-------------------------------------------------------
+
+Topics Covered
+----------------------
+JDBC
+
+Plan
+------
+
+- Create PersistentAppEngine class which will implement/extends the AppEngine interface/class and use JDBC for interacting with the database:
+
+For ex: the code for register method might look like this in Java:
+
+    public void register(Student student) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			Class.forName("org.apache.derby.jdbc.ClientDriver");
+			conn = DriverManager.getConnection("...................................................");
+			
+			String sql = "insert into student values(?,?,?)";
+			stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, student.getId());
+			stmt.setString(2, student.getName());
+			stmt.setInt(3, student.getRollno());
+			stmt.executeUpdate();
+		}
+		catch(ClassNotFoundException | SQLException e) {
+			e.printStackTrace(); //instead throw user defined exception
+		}
+		finally {
+			try { stmt.close(); } catch(Exception e) { }
+			try { conn.close(); } catch(Exception e) { }
+		}
+    }

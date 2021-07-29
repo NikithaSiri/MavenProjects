@@ -1,0 +1,14 @@
+
+table{
+    border:2px;
+    padding:4px;
+    background-color: rgb(196, 241, 255);
+}
+th,td{
+    border:1px solid black;
+}
+thead{
+    border-top: solid-thick;
+    border-right: blank;
+    border-left:blank;
+}

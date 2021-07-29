@@ -1,0 +1,8 @@
+<p>demo-style works!</p>
+<p>demo-style works!</p>
+ 
+  <div *ngFor="let celeb of characters ">
+    <p [ngStyle]="{'background-color':celeb.gender==='Male'?'yellow':'pink' }">
+         {{celeb.actor_name}} {{celeb.char_name}} {{celeb.gender}}  {{celeb.status}}</p>
+</div>
+

@@ -1,0 +1,67 @@
+// Custome Exception
+class InvalidDataException extends Exception 
+{
+	
+String printProblem()
+{
+	
+	return "Data is Not Valid";
+}
+	
+}
+
+
+
+
+class AskForum
+{
+	
+	public void askQuestions(String quest) throws InvalidDataException
+	{
+		
+		if(quest!=null)
+		{
+		System.out.println("Quesytion is:"+quest);
+		}
+		else if(quest==null)
+		{
+		throw new InvalidDataException();
+			
+		}
+	}
+}
+
+
+public class ExcpDemo {
+
+	public static void main(String[] args)  
+	{
+		// TODO Auto-generated method stub
+
+	/*	AskForum obj=new AskForum();
+		try
+		{
+		obj.askQuestions(null);
+		}catch(InvalidDataException ie)
+		{
+		//	System.out.println(ie.printProblem());
+		
+		ie.printStackTrace();
+		}
+	*/	
+		
+		
+	try
+	{
+	int a=10/0;
+	
+	System.out.println(a);
+	}catch(ArithmeticException ae)
+	{
+		throw new ArithmeticException("Ur trying to divide a number by zero");
+		//System.out.println(ae.getMessage());
+		//ae.printStackTrace();
+	}
+
+	
+	}}

@@ -1,0 +1,91 @@
+Why collection framework?
+ 1. Drawbacks of array of objects is limited size
+ collections-vector hashtable-legacy classes
+ 
+ advantages:
+ 1.hold objects(non-primitive)
+ 2.hold heterogeneous object
+ 3.dynamically grow
+ 4.several common methods(like add(),sort(),...)
+ 
+ super interface-Collection 
+                -list -set-queue
+                - Map(not a part of collection)
+                
+List- duplicates allowed,insertion order maintained
+Set- duplicataes not allowed, insertion order not maintained
+
+List:i) ArrayList- faster search- array/index strucure-iterator
+     ii)ListIterator-go backward
+     iii) extra methods-
+     
+List myList=new ArrayList();
+myList.add(100); -->primitives not allowed
+boxing happens-->autoboxing with the help of wrapper classes
+wrapper classes are used for conversions from primitive to non-primitive or vice versa
+
+List myList=new ArrayList();--only no.'s like 100,200,300
+List<Integer>=new ArrayList<>();
+generics-offer compile time safety
+----------------------------------------------------------------------------------------- 
+Set: 
+Set<Student> mySet=new HashSet<>();
+Student s1=new Student(101,"Jay");
+Student s2=new Student(102,"ViJay");
+Student s3=new Student(103,"SanJay");
+
+mySet.add(s1);
+mySet.add(s2);
+mySet.add(s3);
+
+syso(mySet);
+
+output:3 records are added
+
+->if we write
+mySet.add(s1);
+mySet.add(s2);
+mySet.add(s1);
+->only 2 records are added bcoz no duplicated are allowed
+
+Set<Student> mySet=new HashSet<>();
+Student s1=new Student(101,"Jay");
+Student s2=new Student(102,"ViJay");
+Student s3=new Student(101,"Jay");
+
+mySet.add(s1);
+mySet.add(s2);
+mySet.add(s3);
+
+->3 records are added because reference object is different
+
+To find whether it is same content wise then use Hashcode() and equals();
+mySet.add(s1.Hashcode());
+mySet.add(s2.hashcode());
+mySet.add(s3.hashcode());
+
+----------------------------------------------------------------------------------
+
+Map:
+Arrange huge records in array
+Similar objects are placed in bucket
+objects are arranged based on (Hashcode() hashkey() value)
+bucket- Array of 16 index - each index acts as a bucket
+search for hashkey they go the bucket and then index in which all similar objects are placed- using linkedlist
+Thus searching is faster
+
+Methods are different- put and get
+Cannot iterate just like Arraylist bcoz they are not part of collection
+Thus convert to Set by using myMap.entrySet()
+entrySet()-> object gets converted to some another form -> Map.EntrySet<K,V>entry;
+Entry - hashcode
+      -next
+      -key
+      -value-object data
+      -hashKey()-similar objects same key is generated
+      place linked list from bucket
+iterate-getKey(), getValue;
+
+-------------------------------------------------------------------------------------------------------------------------------
+comparable- sorting
+

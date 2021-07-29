@@ -1,0 +1,185 @@
+topics covered:
+1.select statements
+2. operators
+3.order by
+4. group by
+5.joins
+6. single row functions
+
+Monday topics:
+joins-outer and self
+1. set operators
+2.subqueries
+3.single row functions
+**4.Normalization
+5.DDL/DML/procedure functions/views
+
+guidelines for monday:
+software installations:
+oracle/eclipse
+oracle:remember password(username:Name,password:Training123) during installation 
+port:1521
+summary:take screenshot
+1.download JDK-8(64 bit windows)
+2.then eclipse
+
+
+--select ename as "Employee_Name" , sal as "Salary", sal * 0.1 as "Tax" from emp; 
+--select ename || 'is a' || job as "designation" from emp; --concatenation operator "||"
+--select ename,sal,deptno from emp order by deptno;
+--select ename,sal,deptno from emp order by deptno desc;
+--select ename,sal,deptno from emp where job='CLERK' order by deptno desc,sal desc; -- **orderby clause always at the end of the query
+--select ename,sal,sal*0.3 "pf" , sal*0.05 "hra", sal*0.2 "Tra" from emp order by 4;
+
+--select empno,ename,sal,comm,sal*comm "Total sal" from emp; 
+--any calculation/expression with null results into null
+
+--NVL --replaces null values with 0
+--select empno,ename,sal,comm,NVL(comm,100),sal*comm "Total sal" from emp;
+--select sal, NVL(comm,0), NVL(sal+comm,0) as "total sal" from emp;
+--select ename,sal,deptno, NVL(comm,0) as Commision , sal+ NVL(comm,0) as "Total" from emp;
+
+
+GROUP BY:
+---------
+select deptno, sum(sal),max(sal),avg(sal),min(sal),count(sal)
+from emp
+group by deptno;
+select deptno, sum(comm) -- group by clause doesnot include null values for processing. Aggregate functions ignore null vaues
+from emp
+group by deptno;
+
+select job,sum(sal)
+from emp
+group by job;
+
+select deptno,job,sum(sal)
+from emp
+group by
+ deptno,job
+order by deptno;
+
+Columns listed in the select statement apart from group by function have to be listed in group by clause
+Columns lsited in group by need not be listed in the select statement
+columns listed in select statement need not be in group by func
+
+select ename,sum(sal)
+from emp
+group by ename;
+
+select deptno,sum(sal)
+from emp
+group by deptno
+having deptno IN(10,20) -- having works only with group by
+order by 2 desc;
+
+select deptno, sum(sal)
+from emp
+group by deptno 
+where deptno IN (10,20);  --always use before group by
+
+->Where clause is always fast than having because it first arranges in groups and then limits the grouped data according to requireed limit
+->having clause first arranges all data then groups which takes a lot of time
+
+select deptno,sum(sal)
+from emp
+group by deptno
+having hiredate<'01-Jan-82';
+->in this first it is grouped in which there's no hiredate column, hence the error
+in such cases use where clause
+
+select deptno,sum(sal)
+from emp
+where hiredate>'01-Jan-82'
+group by deptno;
+
+• Columns listed in select statement apart from group by function have to be listed in group by clause
+• Columns listed in group by need not be listed in select statement
+• Only group functions can be used in having clause
+• Group functions listed in having clause need not be listed in select statement
+
+select count(*) "A", count(job) "B", count(comm) "C", COUNT(distinct job) "D"
+from emp;
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Cross join: cartesian product
+select * from emp,dept
+
+Join:
+select * from emp,dept
+where emp.deptno=dept.deptno;
+
+->if both the tables have same column name select either of the table like "emp.deptno" or "dept.deptno" to display the value 
+
+select empno,ename,job,emp.deptno,dname,loc from emp,dept
+where emp.deptno=dept.deptno;
+
+** Join means two tables need not have a common column
+
+select empno,ename,job,deptno,dname,loc from emp NATURAL JOIN dept;  --not emp.deptno or dept.deptno 
+
+select emp.empno,emp.ename,emp.job,dept.deptno,dept.dname,dept.loc
+from emp,dept
+where emp.deptno = dept.deptno;
+
+select 
+select e.empno,e.ename,e.job,d.deptno,d.dname,d.loc
+from e,d
+where e.deptno = d.deptno;
+
+CREATE TABLE SALGRADE (
+GRADE NUMBER,
+LOSAL NUMBER,
+HISAL NUMBER);
+
+INSERT INTO SALGRADE VALUES (1,700,1200);
+INSERT INTO SALGRADE VALUES (2,1201,1400);
+INSERT INTO SALGRADE VALUES (3,1401,2000);
+INSERT INTO SALGRADE VALUES (4,2001,3000);
+INSERT INTO SALGRADE VALUES (5,3001,9999);
+
+commit ;
+
+select * from SALGRADE;
+
+select e.ename,e.sal,s.grade
+from emp e, salgrade s
+where e.sal>s.losal and e.sal<s.hisal
+
+select e.ename,e.sal,s.grade
+from emp e, salgrade s
+where e.sal between s.losal and s.hisal;
+
+count function:
+------------------------------------------------------------------------------------------------------------------------------------
+
+-- SINGLE ROW FUNCTIONS : work on each record, return single value, they accept parameter(example:job) as column
+--types: character function
+    -- : number function
+select Upper('MYMaster') from dual; --temporary/dummy table created with just one column, size of tabel is based on the output
+select Lower('MYMaster') from dual;
+select lower(ename) from emp;
+select SYSDATE from dual;
+select upper('MYMAster') from dual;
+select LENGTH('MYMAster') from dual;
+select ename,LENGTH(ename) from emp; -- used in passwords to check length
+select LPAD('MyMaster',10,'*') from dual; --IFSC CODES, ****amount*** in checks,mobile numbers during online shopping etc.
+select RPAD('mymASTER',10,'@') from dual;
+select Rtrim('mymaster','ster') from dual;
+select Ltrim('mymaster','my') from dual; -- to remove unwanted things like mr.,ms.,etc name in  forms
+select substr('MyMaster',2,5) from dual; --** substring functions in diff lang behave differntly 
+select replace('This and That' , 'Th','b') from dual; -- exact match to replace
+select translate('This and That' , 'TH','b') from dual;--rough mapping, based on it works
+select instr('Tech on the net','e') from dual; -- gives the index of first occurance
+select instr('Tech on the net','n') from dual; --counts spaces
+select * from emp 
+where length(ename)<5;
+
+
+
+
+
+

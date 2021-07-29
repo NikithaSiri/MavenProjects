@@ -1,0 +1,19 @@
+<p>employee works!</p>
+<table>
+    <thead>
+        <tr border:1>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            
+        </tr>
+    </thead>
+<tbody>
+<tr *ngFor="let eRec of empList;">
+    <td>{{eRec.empId}}</td>
+    <td>{{eRec.empName}}</td>
+    <td>{{eRec.empSal}}</td>
+    
+</tr>
+</tbody>
+</table>

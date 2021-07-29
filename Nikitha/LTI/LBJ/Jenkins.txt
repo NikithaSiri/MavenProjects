@@ -1,0 +1,23 @@
+Case 1: 
+For example, let say our organization bought HR management system for HR operation and that is built on ServiceNow. For employee attendance, we have biometric attendance system which developed in Java. The HR system’s payroll module depends on employee attendance. So, if we want the complete system to be automated, then the attendance system must talk to the HR system. That’s why integration is required.
+Case 2: When acquiring software, many companies decide to buy only the components that they actually need in that moment. This way may be cheaper and thus seem more profitable at the beginning, but can very quickly become counterproductive. As your organisation evolves, you start using more and more independent tools, this results in productivity drop and inaccurate data analysis. Luckily, systems integration is here to save your business.
+Systems integration is a great solution for companies who struggle with working on multiple independent subsystems and experiencing a lot of time being wasted due to the necessity of re-entering data to each of the tools manually. 
+
+Apart form Jenkins other powerfull tools  : Bamboo  , Apache Gump, Buildbot, Travis CI
+
+What is Continuous Integration?
+In Continuous Integration after a code commit, the software is built and tested immediately. 
+In a large project with many developers, commits are made many times during a day. 
+With each commit code is built and tested. If the test is passed, build is tested for deployment. 
+If deployment is a success, the code is pushed to production. 
+This commit, build, test, and deploy is a continuous process and hence the name continuous integration/deployment.
+A Continuous Integration Pipeline is a powerful instrument that consists of a set of tools designed to host, monitor, compile and test code, or code changes, like:
+•	Continuous Integration Server (Jenkins, Bamboo, CruiseControl, TeamCity, and others)
+•	Source Control Tool (e.g., CVS, SVN, GIT, Mercurial, Perforce, ClearCase and others)
+•	Build tool (Make, ANT, Maven, Ivy, Gradle, and others)
+•	Automation testing framework (Selenium, Appium, TestComplete, UFT, and others)
+Jenkin History
+•	Kohsuke Kawaguchi, a Java developer, working at SUN Microsystems, was tired of building the code and fixing errors repetitively. In 2004, created an automation server called Hudson that automates build and test task.
+•	In 2011, Oracle who owned Sun Microsystems had a dispute with Hudson open source community, so they forked Hudson and renamed it as Jenkins.
+•	Both Hudson and Jenkins continued to operate independently. But in short span of time, Jenkins acquired a lot of projects and contributors while Hudson remained with only 32 projects. With time, Jenkins became more popular, and Hudson is not maintained anymore.
+

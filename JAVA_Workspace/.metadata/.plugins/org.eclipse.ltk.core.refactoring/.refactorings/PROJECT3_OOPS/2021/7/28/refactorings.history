@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.lti.user.Facebook&apos; to &apos;FacebookUser&apos;&#x0D;&#x0A;- Original project: &apos;PROJECT3_OOPS&apos;&#x0D;&#x0A;- Original element: &apos;com.lti.user.Facebook&apos;&#x0D;&#x0A;- Renamed element: &apos;com.lti.user.FacebookUser&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Facebook&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.lti.user{Facebook.java[Facebook" matchStrategy="1" name="FacebookUser" qualified="false" references="true" similarDeclarations="false" stamp="1625724963404" textual="false" version="1.0"/>
+</session>
