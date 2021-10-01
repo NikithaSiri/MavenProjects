@@ -9,7 +9,7 @@ import com.dmart.service.ImplProductService;
 
 public class ClientApp {
 	public static void main(String[] args) {
-		IProduct service=new ImplProductService();
+		IProduct service=null;
 		 Scanner sc= new Scanner(System.in);	 
 		 String ans;
 		 int no;
@@ -22,14 +22,18 @@ public class ClientApp {
 					switch(no)
 					{
 					case 1:
+						service=new ImplProductService();
 					System.out.println("Enter product id,name and cost");
 					int pid=sc.nextInt();
 					String pname=sc.next();
 					double pcost=sc.nextDouble();
+					
 					Product p=new Product(pid,pname,pcost);
 					System.out.println(p);			
+					
 					String msg=service.addProduct(p);		
 					System.out.println(service);
+					
 					break;
 					case 2: 
 						List<Product> myList=service.getAllProducts();

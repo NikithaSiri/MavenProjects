@@ -1,9 +1,22 @@
 package com.dmart.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PRODUCTS")
 public class Product {
 
+		@Id
+		@Column(name="PRD_ID")
 		private int prdId;
+		
+		@Column(name="PRD_NAME")
 		private String prdName;
+		
+		@Column(name="PRD_COST")
 		private double prdCost;
 		public Product() {
 			super();
